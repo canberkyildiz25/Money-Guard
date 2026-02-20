@@ -1,0 +1,472 @@
+/* ===========================
+   Landing Page - Money Guard
+   =========================== */
+
+.page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-primary);
+  color: #f9fafb;
+}
+
+/* Animasyonlu arka plan blob'ları */
+.bgBlob1,
+.bgBlob2,
+.bgBlob3 {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  animation: blobPulse 8s ease-in-out infinite;
+}
+
+.bgBlob1 {
+  width: 500px;
+  height: 500px;
+  background: rgba(79, 70, 229, 0.35);
+  top: -100px;
+  left: -150px;
+  animation-delay: 0s;
+}
+
+.bgBlob2 {
+  width: 400px;
+  height: 400px;
+  background: rgba(16, 185, 129, 0.25);
+  top: 30%;
+  right: -100px;
+  animation-delay: 3s;
+}
+
+.bgBlob3 {
+  width: 350px;
+  height: 350px;
+  background: rgba(245, 158, 11, 0.2);
+  bottom: 10%;
+  left: 20%;
+  animation-delay: 6s;
+}
+
+@keyframes blobPulse {
+  0%, 100% { transform: scale(1) translate(0, 0); }
+  50% { transform: scale(1.15) translate(20px, -20px); }
+}
+
+/* ===========================
+   Header / Navbar
+   =========================== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoIcon {
+  font-size: 1.75rem;
+}
+
+.logoText {
+  font-family: var(--font-secondary);
+  font-size: 1.25rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #a78bfa, #34d399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.navLogin {
+  padding: 0.4rem 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  font-size: 0.875rem;
+  color: #e5e7eb;
+  text-decoration: none;
+  transition: all 200ms ease;
+}
+
+.navLogin:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.navRegister {
+  padding: 0.4rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  transition: all 200ms ease;
+  box-shadow: 0 0 16px rgba(79, 70, 229, 0.4);
+}
+
+.navRegister:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 24px rgba(79, 70, 229, 0.6);
+}
+
+/* ===========================
+   Hero Bölümü
+   =========================== */
+.hero {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  padding: 5rem 2rem 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.heroContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.heroBadge {
+  display: inline-block;
+  padding: 0.25rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(79, 70, 229, 0.25);
+  border: 1px solid rgba(79, 70, 229, 0.4);
+  color: #a78bfa;
+  margin-bottom: 1rem;
+}
+
+.heroTitle {
+  font-family: var(--font-secondary);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #f9fafb;
+  margin-bottom: 1.25rem;
+}
+
+.heroTitleAccent {
+  background: linear-gradient(135deg, #818cf8, #34d399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroDesc {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #9ca3af;
+  margin-bottom: 2rem;
+  max-width: 480px;
+}
+
+.heroCta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.ctaPrimary {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  box-shadow: 0 0 20px rgba(79, 70, 229, 0.45);
+  transition: all 250ms ease;
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 32px rgba(79, 70, 229, 0.65);
+  color: #fff;
+}
+
+.ctaSecondary {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e5e7eb;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  transition: all 250ms ease;
+}
+
+.ctaSecondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ===========================
+   Mock Dashboard Kartı
+   =========================== */
+.heroVisual {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.mockCard {
+  width: 300px;
+  background: rgba(31, 41, 55, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+  animation: floatCard 4s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.mockCardHeader {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.mockDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.mockBalance {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mockBalanceLabel {
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.mockBalanceAmount {
+  font-family: var(--font-secondary);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #f9fafb;
+}
+
+.mockTransactions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.mockTxRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mockTxType {
+  font-size: 1rem;
+  font-weight: 700;
+  width: 16px;
+  flex-shrink: 0;
+}
+
+.mockTxLabel {
+  flex: 1;
+  font-size: 0.875rem;
+  color: #d1d5db;
+}
+
+.mockTxAmount {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* ===========================
+   Özellikler Bölümü
+   =========================== */
+.features {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 2rem 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.featuresTitle {
+  font-family: var(--font-secondary);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: #f9fafb;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.featureCard {
+  background: rgba(31, 41, 55, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 1.75rem 1.5rem;
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(79, 70, 229, 0.2);
+  border-color: rgba(79, 70, 229, 0.3);
+}
+
+.featureIcon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.featureTitle {
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f9fafb;
+  margin-bottom: 0.5rem;
+}
+
+.featureDesc {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #9ca3af;
+  margin-bottom: 0;
+}
+
+/* ===========================
+   Alt CTA Bölümü
+   =========================== */
+.bottomCta {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 2rem 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.bottomCtaCard {
+  text-align: center;
+  background: rgba(79, 70, 229, 0.15);
+  border: 1px solid rgba(79, 70, 229, 0.3);
+  border-radius: 1.5rem;
+  padding: 3rem 2.5rem;
+  max-width: 520px;
+  width: 100%;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.bottomCtaTitle {
+  font-family: var(--font-secondary);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f9fafb;
+  margin-bottom: 0.75rem;
+}
+
+.bottomCtaDesc {
+  font-size: 1rem;
+  color: #9ca3af;
+  margin-bottom: 1.75rem;
+}
+
+/* ===========================
+   Footer
+   =========================== */
+.footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  font-size: 0.8rem;
+  color: #4b5563;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    padding: 3rem 1.25rem 2.5rem;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .heroDesc {
+    max-width: 100%;
+  }
+
+  .heroCta {
+    justify-content: center;
+  }
+
+  .mockCard {
+    width: 260px;
+  }
+
+  .header {
+    padding: 0.75rem 1.25rem;
+  }
+
+  .features {
+    padding: 2rem 1.25rem 3rem;
+  }
+
+  .bottomCtaCard {
+    padding: 2rem 1.5rem;
+  }
+}
