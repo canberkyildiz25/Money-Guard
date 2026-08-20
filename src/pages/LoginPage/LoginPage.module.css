@@ -1,9 +1,6 @@
 .loginPage {
   min-height: 100vh;
-  background:
-      radial-gradient(80% 60% at 100% 0%,  rgba(0, 0, 0, 0.6) 35%, rgba(0,0,0,0) 100%),
-      radial-gradient(80% 50% at 0% 100%, rgba(0, 0, 0, 0.6) 1%, rgba(0,0,0,0) 80%),
-      linear-gradient(15deg, #000000 0%, #5a2491 60%, #000000 100%);
+  background: var(--color-paper-2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,7 +17,7 @@
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background: rgba(15, 10, 30, 0.35);
+  background: var(--color-paper-2);
 }
 
 .modalContainer {
@@ -58,15 +55,14 @@
   position: absolute;
   width: 60px;
   height: 60px;
-  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  background: var(--color-paper-2);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  color: #8b4513;
+  color: var(--color-ink);
   font-size: 24px;
-  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
   animation: float 8s ease-in-out infinite;
 }
 
@@ -130,10 +126,7 @@
 /* Mobile Responsive Design (320x568) */
 @media (max-width: 767px) {
   .loginPage {
-    background:
-    radial-gradient(80% 60% at 100% 0%,  rgba(0, 0, 0, 0.6) 35%, rgba(0,0,0,0) 100%),
-    radial-gradient(80% 50% at 0% 100%, rgba(0, 0, 0, 0.6) 1%, rgba(0,0,0,0) 80%),
-    linear-gradient(15deg, #000000 0%, #5a2491 60%, #000000 100%);
+    background: var(--color-paper-2);
     min-height: 100vh;
     padding: 0;
   }

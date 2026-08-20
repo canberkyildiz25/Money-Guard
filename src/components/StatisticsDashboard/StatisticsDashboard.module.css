@@ -1,6 +1,6 @@
 .statisticsDashboard {
   padding: 20px;
-  color: white;
+  color: var(--color-ink);
 }
 
 /* Header with Filters */
@@ -21,14 +21,13 @@
 .monthFilter,
 .yearFilter {
   width: 100%;
-  background: #4a56e21a;
-  border: 1px solid rgba(251, 251, 251, 0.546);
+  background: var(--color-accent-wash);
+  border: 1px solid var(--color-rule);
   border-radius: 12px;
   padding: 15px 20px;
-  color: white;
+  color: var(--color-ink);
   font-size: 16px;
   font-weight: 500;
-  backdrop-filter: blur(10px);
   min-width: 120px;
   height: 50px;
   cursor: pointer;
@@ -39,24 +38,21 @@
 
 .monthFilter:hover,
 .yearFilter:hover {
-  background: rgba(74, 86, 226, 0.3);
-  border-color: rgba(251, 251, 251, 0.8);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background: var(--color-accent-wash);
+  border-color: var(--color-rule-heavy);
 }
 
 .monthFilter:focus,
 .yearFilter:focus {
   outline: none;
-  border-color: #4a56e2;
-  box-shadow: 0 0 0 3px rgba(74, 86, 226, 0.3);
+  border-color: var(--color-accent);
   z-index: 1001;
 }
 
 .monthFilter option,
 .yearFilter option {
-  background: #1a1a1a;
-  color: white;
+  background: var(--color-paper-2);
+  color: var(--color-ink);
   z-index: 1002;
 }
 
@@ -97,8 +93,7 @@
 .balanceText {
   font-size: 1.5rem;
   font-weight: 700;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: var(--color-ink);
 }
 
 /* Expense Details Section - Sağ taraf */
@@ -115,7 +110,7 @@
 .transactionListTitle {
   font-size: 1.5rem;
   font-weight: 600;
-  color: white;
+  color: var(--color-ink);
   margin-bottom: 20px;
 }
 
@@ -132,9 +127,9 @@
   align-items: center;
   gap: 15px;
   padding: 12px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--color-paper-2);
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--color-rule);
 }
 
 .categoryColor {
@@ -154,12 +149,12 @@
 .categoryName {
   font-weight: 600;
   font-size: 14px;
-  color: #e2e8f0;
+  color: var(--color-ink-2);
 }
 
 .categoryAmount {
   font-size: 12px;
-  color: #a0a0a0;
+  color: var(--color-ink-2);
 }
 
 /* Summary Totals */
@@ -178,30 +173,30 @@
 
 .summaryLabel {
   font-size: 14px;
-  color: #ffffff;
+  color: var(--color-ink);
 }
 
 .summaryValue {
   font-weight: 700;
   font-size: 16px;
-  color: #f87171;
+  color: var(--color-expense);
 }
 
 .summaryValue.income {
-  color: #ff9f40;
+  color: var(--color-caution, var(--color-accent));
 }
 
 /* Transaction Table Section */
 .transactionTableSection {
   margin-top: 20px;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--color-rule);
 }
 
 .tableTitle {
   font-size: 1.2rem;
   font-weight: 600;
-  color: white;
+  color: var(--color-ink);
   margin-bottom: 15px;
   text-align: center;
 }
@@ -215,11 +210,11 @@
   grid-template-columns: 1fr 1fr 2fr 1fr;
   gap: 65px;
   padding: 15px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--color-paper-2);
   border-radius: 8px;
   margin-bottom: 10px;
   font-weight: 600;
-  color: white;
+  color: var(--color-ink);
   font-size: 14px;
 }
 
@@ -230,22 +225,22 @@
   padding: 12px 15px;
   margin-top: 20px;
   padding-top: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--color-rule);
   align-items: center;
   transition: background-color 0.2s ease;
 }
 
 .tableRow:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--color-paper-2);
 }
 
 .tableRow span {
-  color: white;
+  color: var(--color-ink);
   font-size: 14px;
 }
 
 .category {
-  color: #e2e8f0;
+  color: var(--color-ink-2);
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -262,7 +257,7 @@
 }
 
 .comment {
-  color: #a0a0a0;
+  color: var(--color-ink-2);
   font-size: 13px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -274,17 +269,17 @@
 }
 
 .amount.expense {
-  color: #f87171;
+  color: var(--color-expense);
 }
 
 .amount.income {
-  color: #ff9f40;
+  color: var(--color-caution, var(--color-accent));
 }
 
 .noTransactions {
   text-align: center;
   padding: 40px 20px;
-  color: #a0a0a0;
+  color: var(--color-ink-2);
 }
 
 .noTransactions p {
@@ -424,8 +419,7 @@
 .mobileBalanceText {
   font-size: 1.2rem;
   font-weight: 700;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: var(--color-ink);
 }
 
 /* Mobile Filters Section */
@@ -446,7 +440,7 @@
 }
 
 .mobileTransactionsTable {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--color-paper-2);
   border-radius: 12px;
   padding: 15px;
   margin-bottom: 20px;
@@ -456,10 +450,10 @@
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--color-rule);
   margin-bottom: 15px;
   font-weight: 600;
-  color: white;
+  color: var(--color-ink);
   font-size: 14px;
 }
 
@@ -468,7 +462,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 12px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--color-rule);
 }
 
 .mobileTableRow:last-child {
@@ -479,7 +473,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: white;
+  color: var(--color-ink);
   font-size: 14px;
   font-weight: 500;
 }
@@ -492,19 +486,19 @@
 }
 
 .mobileAmount {
-  color: white;
+  color: var(--color-ink);
   font-weight: 600;
   font-size: 14px;
 }
 
 .mobileAmount.mobileIncome {
-  color: #ff9f40;
+  color: var(--color-caution, var(--color-accent));
 }
 
 .mobileNoTransactions {
   text-align: center;
   padding: 40px 20px;
-  color: #a0a0a0;
+  color: var(--color-ink-2);
 }
 
 .mobileNoTransactions p {
@@ -516,7 +510,7 @@
 .mobileSummaryTotals {
   margin-top: 20px;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--color-rule);
 }
 
 .mobileSummaryItem {
@@ -528,17 +522,17 @@
 
 .mobileSummaryLabel {
   font-size: 14px;
-  color: #ffffff;
+  color: var(--color-ink);
 }
 
 .mobileSummaryValue {
   font-weight: 700;
   font-size: 16px;
-  color: #f87171;
+  color: var(--color-expense);
 }
 
 .mobileSummaryValue.mobileIncome {
-  color: #ff9f40;
+  color: var(--color-caution, var(--color-accent));
 }
 
 /* Mobile Responsive Design */

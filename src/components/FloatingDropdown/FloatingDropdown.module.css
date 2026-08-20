@@ -6,9 +6,9 @@
     width: 100%;
     background: transparent;
     border: none;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.28);
+    border-bottom: 2px solid var(--color-rule);
     padding: 10px 0;
-    color: #fff;
+    color: var(--color-ink);
     font-size: 16px;
     border-radius: 0;
     transition: border-color 0.2s ease;
@@ -22,12 +22,12 @@
 }
 
 .trigger:hover {
-    border-bottom-color: rgba(255, 255, 255, 0.5);
+    border-bottom-color: var(--color-rule);
 }
 
 .trigger:focus {
     outline: none;
-    border-bottom-color: #ffd166;
+    border-bottom-color: var(--color-accent);
 }
 
 .trigger:disabled {
@@ -37,17 +37,17 @@
 
 .value {
     flex: 1;
-    color: #fff;
+    color: var(--color-ink);
 }
 
 .value:empty::before {
     content: attr(data-placeholder);
-    color: rgba(255, 255, 255, 0.55);
+    color: var(--color-ink-3);
 }
 
 .arrow {
     transition: transform 0.2s ease;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--color-ink-2);
     font-size: 12px;
     margin-left: 8px;
 }
@@ -58,11 +58,9 @@
 
 /* Dropdown Menu */
 .dropdown {
-    background: #2b1a63;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: var(--color-paper-2);
+    border: 1px solid var(--color-rule);
     border-radius: 8px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
     z-index: 1000;
     max-height: 200px;
     overflow-y: auto;
@@ -74,12 +72,12 @@
     background: transparent;
     border: none;
     padding: 12px 16px;
-    color: #fff;
+    color: var(--color-ink);
     font-size: 16px;
     text-align: left;
     cursor: pointer;
     transition: background-color 0.2s ease;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--color-rule);
 }
 
 .option:last-child {
@@ -87,52 +85,46 @@
 }
 
 .option:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--color-paper-2);
 }
 
 .optionSelected {
-    background: rgba(255, 209, 102, 0.2);
-    color: #ffd166;
+    background: var(--color-accent-wash);
+    color: var(--color-accent);
 }
 
 .option:focus {
     outline: none;
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--color-paper-2);
 }
 
 /* Statistics Dashboard specific styles */
 .statisticsTrigger {
-    background: #4a56e21a;
-    border: 1px solid rgba(251, 251, 251, 0.546);
+    background: var(--color-accent-wash);
+    border: 1px solid var(--color-rule);
     border-radius: 12px;
     padding: 15px 20px;
-    color: white;
+    color: var(--color-ink);
     font-size: 16px;
     font-weight: 500;
-    backdrop-filter: blur(10px);
     min-width: 120px;
-    border-bottom: 1px solid rgba(251, 251, 251, 0.546);
+    border-bottom: 1px solid var(--color-rule);
 }
 
 .statisticsTrigger:hover {
-    background: rgba(74, 86, 226, 0.3);
-    border-color: rgba(251, 251, 251, 0.8);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background: var(--color-accent-wash);
+    border-color: var(--color-rule-heavy);
 }
 
 .statisticsTrigger:focus {
     outline: none;
-    border-color: #4a56e2;
-    box-shadow: 0 0 0 3px rgba(74, 86, 226, 0.3);
+    border-color: var(--color-accent);
 }
 
 .statisticsDropdown {
-    background: #1a1a1a;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--color-paper-2);
+    border: 1px solid var(--color-rule);
     border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(15px);
     z-index: 1001;
 }
 

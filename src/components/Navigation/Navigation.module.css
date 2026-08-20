@@ -10,21 +10,20 @@
   gap: 0.75rem;
   padding: 0.75rem 1rem;
   border-radius: 12px;
-  color: #a0a0a0;
+  color: var(--color-ink-2);
   text-decoration: none;
   transition: all 0.2s ease;
   font-weight: 500;
 }
 
 .navItem:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
+  background: var(--color-paper-2);
+  color: var(--color-ink);
 }
 
 .navItem.active {
-  background: rgba(255, 255, 255, 0.15);
-  color: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  background: var(--color-paper-2);
+  color: var(--color-ink);
   font-weight: 600;
 }
 

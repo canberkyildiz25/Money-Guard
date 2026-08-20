@@ -1,6 +1,6 @@
 .dashboard {
   min-height: 100vh;
-  background-color: rgb(0, 0, 0);
+  background-color: var(--color-ink);
   position: relative;
   overflow: hidden;
 }
@@ -63,9 +63,8 @@
 /* Sidebar Styles - Desktop */
 .sidebar {
   width: 400px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--color-paper-2);
+  border-right: 1px solid var(--color-rule);
   padding: 1.5rem 1rem;
   display: flex;
   flex-direction: column;
@@ -77,10 +76,10 @@
 }
 
 .balanceSection {
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--color-paper-2);
   border-radius: 12px;
   padding: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--color-rule);
   margin-bottom: 0;
   margin-top: 1rem;
   height: 80px;
@@ -93,7 +92,7 @@
 .balanceTitle {
   font-size: 0.7rem;
   font-weight: 600;
-  color: #a0a0a0;
+  color: var(--color-ink-2);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 0.5rem;
@@ -102,8 +101,7 @@
 .balanceAmount {
   font-size: 2rem;
   font-weight: 700;
-  color: white;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: var(--color-ink);
   margin-bottom: 0;
 }
 
@@ -118,11 +116,11 @@
 
 
 .currencyTable {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--color-paper-2);
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 0.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--color-rule);
   flex-shrink: 0;
 }
 
@@ -130,22 +128,22 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 1rem; /* Padding artır */
-  background: rgba(255, 255, 255, 0.08); /* Header için background */
+  background: var(--color-paper-2); /* Header için background */
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: #a0a0a0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-ink-2);
+  border-bottom: 1px solid var(--color-rule);
 }
 
 .currencyRow {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 1rem; /* Padding artır */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--color-rule);
   font-size: 0.875rem;
-  color: white;
+  color: var(--color-ink);
   background: none;
 }
 
@@ -156,11 +154,11 @@
 .graphContainer {
   position: relative;
   height: auto;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--color-paper-2);
   border-radius: 12px;
   overflow: hidden;
   margin-top: 0;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--color-rule);
   flex: 1;
   min-height: 200px;
 }
@@ -171,7 +169,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, #f59e0b 0%, #ec4899 100%);
+  background: var(--color-paper-2);
   transform: translateY(-50%);
 }
 
@@ -182,7 +180,7 @@
   left: 0;
   right: 0;
   height: 40px;
-  background: linear-gradient(180deg, rgba(245, 158, 11, 0.2) 0%, transparent 100%);
+  background: var(--color-paper-2);
 }
 
 .graphPoints {
@@ -196,9 +194,9 @@
   transform: translateY(-50%);
   width: 12px;
   height: 12px;
-  background: #f59e0b;
+  background: var(--color-accent);
   border-radius: 50%;
-  border: 2px solid white;
+  border:2px solid var(--color-rule);
 }
 
 .graphPoint span {
@@ -208,7 +206,7 @@
   transform: translateX(-50%);
   font-size: 0.75rem;
   font-weight: 600;
-  color: white;
+  color: var(--color-ink);
 }
 
 /* Main Content Styles */
@@ -220,18 +218,17 @@
 }
 
 .transactionsContainer {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
+  background: var(--color-paper-2);
   border-radius: 16px;
   padding: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--color-rule);
 }
 
 .transactionsTitle {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 2rem;
-  color: white;
+  color: var(--color-ink);
 }
 
 .transactionsTable {
@@ -243,12 +240,12 @@
   grid-template-columns: 1fr 0.5fr 1fr 2fr 1fr 1fr;
   gap: 1rem;
   padding: 1rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--color-rule);
   font-weight: 600;
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: #a0a0a0;
+  color: var(--color-ink-2);
 }
 .tableEmptyWrap {
   padding: 16px;
@@ -259,10 +256,10 @@
   grid-template-columns: 1fr 0.5fr 1fr 2fr 1fr 1fr;
   gap: 1rem;
   padding: 1rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--color-rule);
   align-items: center;
   font-size: 0.875rem;
-  color: white;
+  color: var(--color-ink);
 }
 
 .tableRow:last-child {
@@ -270,7 +267,7 @@
 }
 
 .date {
-  color: #a0a0a0;
+  color: var(--color-ink-2);
 }
 
 .type {
@@ -279,35 +276,35 @@
 }
 
 .income {
-  color: #10b981;
+  color: var(--color-income);
 }
 
 .expense {
-  color: #ef4444;
+  color: var(--color-expense);
 }
 
 .category {
-  color: white;
+  color: var(--color-ink);
   font-weight: 500;
 }
 
 .comment {
-  color: #d1d5db;
+  color: var(--color-ink-3);
 }
 
 .sum {
   font-weight: 600;
-  color: white;
+  color: var(--color-ink);
   font-size: 0.875rem;
 }
 
 /* Pozitif ve negatif sayılar için renk kodlaması - resimdeki gibi */
 .sum.positive {
-  color: #fbbf24; /* Sarı renk - pozitif değerler (Income) için */
+  color: var(--color-caution, var(--color-accent)); /* Sarı renk - pozitif değerler (Income) için */
 }
 
 .sum.negative {
-  color: #ef4444; /* Kırmızı renk - negatif değerler (Expense) için */
+  color: var(--color-expense); /* Kırmızı renk - negatif değerler (Expense) için */
 }
 
 .actions {
@@ -319,7 +316,7 @@
 .editButton {
   background: none;
   border: none;
-  color: #a0a0a0;
+  color: var(--color-ink-2);
   cursor: pointer;
   padding: 0.25rem;
   border-radius: 4px;
@@ -327,8 +324,8 @@
 }
 
 .editButton:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
+  background: var(--color-paper-2);
+  color: var(--color-ink);
 }
 
 .editIcon {
@@ -337,9 +334,8 @@
 }
 
 .deleteButton {
-  background: linear-gradient(45deg, #e9d30a, #cf2711, #d311c9, #581c87);
-  background-size: 200% 200%;
-  color: white;
+  background: var(--color-paper-2);
+  color: var(--color-ink);
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 25px;
@@ -349,49 +345,14 @@
   letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.8s ease;
-  box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
   position: relative;
   overflow: hidden;
-  animation: gradientShift 3s ease infinite;
-}
-
-.deleteButton::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: left 0.8s ease;
-}
-
-.deleteButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4);
-  animation: gradientShift 1.5s ease infinite;
-}
-
-.deleteButton:hover::before {
-  left: 100%;
-}
-
-.deleteButton:active {
+}.deleteButton:hover {
+}.deleteButton:active {
   transform: translateY(0);
-  box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
 }
 
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+
 
 /* Floating Action Button */
 .fab {
@@ -400,12 +361,11 @@
   right: 2rem;
   width: 56px;
   height: 56px;
-  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+  background: var(--color-paper-2);
   border: none;
   border-radius: 50%;
-  color: white;
+  color: var(--color-ink);
   cursor: pointer;
-  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.3);
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
@@ -415,7 +375,6 @@
 
 .fab:hover {
   transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 12px 35px rgba(236, 72, 153, 0.4);
 }
 
 .fabIcon {
@@ -466,10 +425,9 @@
     width: 100%;
     order: 1;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
+    background: var(--color-paper-2);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--color-rule);
     display: flex;
     flex-direction: row;
     gap: 2rem;
@@ -502,10 +460,9 @@
   
   .transactionsContainer {
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
+    background: var(--color-paper-2);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--color-rule);
   }
   
   .tableHeader,
@@ -518,9 +475,9 @@
   .balanceSection {
     margin-bottom: 0;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--color-paper-2);
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--color-rule);
     margin-top: 0px; /* Tablet'te margin-top'u sıfırla */
     height: auto; /* Tablet'te otomatik yükseklik */
   }
@@ -651,10 +608,9 @@
     width: 100%;
     order: 1;
     padding: 0;
-    background: rgba(255, 255, 255, 0.0);
-    backdrop-filter: blur(10px);
+    background: transparent;
     border-radius: 12px;
-    border: 0 solid rgba(255, 255, 255, 0.0);
+    border: 0 solid var(--color-rule);
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -680,7 +636,6 @@
   .transactionsContainer {
     padding: 0;
     background: transparent;
-    backdrop-filter: none;
     border-radius: 0;
     border: none;
   }
@@ -709,10 +664,9 @@
   .mobileCard {
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
+    background: var(--color-paper-2);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--color-rule);
     padding: 1rem;
     gap: 0.5rem;
     position: relative;
@@ -730,7 +684,7 @@
   .transactionCardLabel {
     font-size: 0.75rem;
     font-weight: 600;
-    color: #a0a0a0;
+    color: var(--color-ink-2);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     flex: 1;
@@ -739,7 +693,7 @@
   
   .transactionCardValue {
     font-size: 0.875rem;
-    color: white;
+    color: var(--color-ink);
     font-weight: 500;
     text-align: right;
     flex: 1;
@@ -752,11 +706,11 @@
   }
   
   .transactionCardValue.income {
-    color: #10b981;
+    color: var(--color-income);
   }
   
   .transactionCardValue.expense {
-    color: #ef4444;
+    color: var(--color-expense);
   }
   
   /* Sum styling */
@@ -766,11 +720,11 @@
   }
   
   .transactionCardValue.sum.positive {
-    color: #fbbf24;
+    color: var(--color-caution, var(--color-accent));
   }
   
   .transactionCardValue.sum.negative {
-    color: #ef4444;
+    color: var(--color-expense);
   }
   
   /* Mobile Actions - card alt kısmında, Delete sol, Edit sağ */
@@ -780,13 +734,13 @@
     align-items: center;
     margin-top: 0.75rem;
     padding-top: 0.75rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--color-rule);
   }
   
   .mobileEditButton {
     background: none;
     border: none;
-    color: #a0a0a0;
+    color: var(--color-ink-2);
     cursor: pointer;
     padding: 0.5rem;
     border-radius: 8px;
@@ -799,8 +753,8 @@
   }
   
   .mobileEditButton:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
+    background: var(--color-paper-2);
+    color: var(--color-ink);
   }
   
   .mobileEditButton .editIcon {
@@ -809,9 +763,8 @@
   }
   
   .mobileDeleteButton {
-    background: linear-gradient(45deg, #e9d30a, #cf2711, #d311c9, #581c87);
-    background-size: 200% 200%;
-    color: white;
+    background: var(--color-paper-2);
+    color: var(--color-ink);
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 25px;
@@ -821,37 +774,12 @@
     letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.8s ease;
-    box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
     position: relative;
     overflow: hidden;
-    animation: gradientShift 3s ease infinite;
     order: 1; /* Delete sol tarafta */
-  }
-  
-  .mobileDeleteButton::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.8s ease;
-  }
-  
-  .mobileDeleteButton:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4);
-    animation: gradientShift 1.5s ease infinite;
-  }
-  
-  .mobileDeleteButton:hover::before {
-    left: 100%;
-  }
-  
-  .mobileDeleteButton:active {
+  }.mobileDeleteButton:hover {
+  }.mobileDeleteButton:active {
     transform: translateY(0);
-    box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
   }
   
   /* FAB için mobil optimizasyonu */
@@ -929,8 +857,8 @@
 
 .trendIndicator {
   font-size: 0.75rem;
-  color: #a0a0a0;
-  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-ink-2);
+  background: var(--color-paper-2);
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   display: inline-block;
@@ -940,8 +868,8 @@
   margin-top: 0.5rem;
   text-align: center;
   font-size: 0.7rem;
-  color: #666;
-  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-ink-2);
+  background: var(--color-paper-2);
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
 }

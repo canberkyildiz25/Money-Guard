@@ -7,10 +7,7 @@
   justify-content: center;
   position: relative;
   overflow-y: auto;
-  background:
-      radial-gradient(80% 60% at 100% 0%,  rgba(0, 0, 0, 0.6) 35%, rgba(0,0,0,0) 100%),
-      radial-gradient(80% 50% at 0% 100%, rgba(0, 0, 0, 0.6) 1%, rgba(0,0,0,0) 80%),
-      linear-gradient(15deg, #000000 0%, #5a2491 60%, #000000 100%);
+  background: var(--color-paper-2);
 }
 
 .modalOverlay {
@@ -22,7 +19,7 @@
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background: rgba(15, 10, 30, 0.35);
+  background: var(--color-paper-2);
 }
 
 .modalContainer {
@@ -49,10 +46,7 @@
 /* Mobile Responsive Design (320x568) */
 @media (max-width: 767px) {
   .registerPage {
-    background:
-    radial-gradient(80% 60% at 100% 0%,  rgba(0, 0, 0, 0.6) 35%, rgba(0,0,0,0) 100%),
-    radial-gradient(80% 50% at 0% 100%, rgba(0, 0, 0, 0.6) 1%, rgba(0,0,0,0) 80%),
-    linear-gradient(15deg, #000000 0%, #5a2491 60%, #000000 100%);
+    background: var(--color-paper-2);
     min-height: 100dvh;
     height: auto;
     padding: 0;
