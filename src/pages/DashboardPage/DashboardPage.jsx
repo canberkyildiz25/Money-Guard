@@ -85,7 +85,7 @@ const DashboardPage = () => {
 
               {/* Balance */}
               <div className={styles.balanceSection}>
-                <h3 className={styles.balanceTitle}>YOUR BALANCE</h3>
+                <h3 className={styles.balanceTitle}>TOPLAM BAKİYE</h3>
                 <div className={styles.balanceAmount}>{formatTRY(totalBalance)}</div>
               </div>
             </div>
@@ -102,11 +102,11 @@ const DashboardPage = () => {
           <div className={styles.transactionsContainer}>
             <div className={styles.transactionsTable}>
               <div className={styles.tableHeader}>
-                <span>Date</span>
-                <span>Type</span>
-                <span>Category</span>
-                <span>Comment</span>
-                <span>Sum</span>
+                <span>Tarih</span>
+                <span>Tür</span>
+                <span>Kategori</span>
+                <span>Açıklama</span>
+                <span>Tutar</span>
               </div>
 
               {transactions && transactions.length > 0 ? (
@@ -166,11 +166,11 @@ const DashboardPage = () => {
                     {/* Mobile Card Layout - Sadece mobilde görünür */}
                     <div className={styles.mobileCard}>
                       <div className={styles.transactionCardRow}>
-                        <span className={styles.transactionCardLabel}>Date</span>
+                        <span className={styles.transactionCardLabel}>Tarih</span>
                         <span className={styles.transactionCardValue}>{transaction.transactionDate}</span>
                       </div>
                       <div className={styles.transactionCardRow}>
-                        <span className={styles.transactionCardLabel}>Type</span>
+                        <span className={styles.transactionCardLabel}>Tür</span>
                         <span
                           className={`${styles.transactionCardValue} ${styles.type} ${
                             transaction.type === 'INCOME' ? styles.income : styles.expense
@@ -180,17 +180,17 @@ const DashboardPage = () => {
                         </span>
                       </div>
                       <div className={styles.transactionCardRow}>
-                        <span className={styles.transactionCardLabel}>Category</span>
+                        <span className={styles.transactionCardLabel}>Kategori</span>
                         <span className={styles.transactionCardValue}>
                           {getCategoryName(transaction.categoryId)}
                         </span>
                       </div>
                       <div className={styles.transactionCardRow}>
-                        <span className={styles.transactionCardLabel}>Comment</span>
+                        <span className={styles.transactionCardLabel}>Açıklama</span>
                         <span className={styles.transactionCardValue}>{transaction.comment}</span>
                       </div>
                       <div className={styles.transactionCardRow}>
-                        <span className={styles.transactionCardLabel}>Sum</span>
+                        <span className={styles.transactionCardLabel}>Tutar</span>
                         <span
                           className={`${styles.transactionCardValue} ${styles.sum} ${
                             transaction.amount >= 0 ? styles.positive : styles.negative

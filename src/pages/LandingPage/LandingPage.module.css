@@ -35,9 +35,9 @@
 
 .wordmark {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 400;
   font-size: var(--text-lg);
-  letter-spacing: -0.015em;
+  letter-spacing: -0.008em;
   color: var(--color-ink);
 }
 
@@ -123,13 +123,13 @@
 
 .marqueeTitle {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 400;
   font-style: normal;
   /* Kenarlara yaslanan gerçek bir görsel ölçek. Alt sınır tabletlerde
      satırın kırılmaması için 2.75rem'de tutuluyor. */
   font-size: clamp(2.75rem, 12vw, 9rem);
   line-height: 0.92;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.018em;
   overflow-wrap: anywhere;
   min-width: 0;
   margin: 0;
@@ -142,8 +142,7 @@
   display: grid;
   gap: var(--space-2xs);
   margin: 0;
-  padding-left: var(--space-md);
-  border-left: var(--rule-hair) solid var(--color-rule-heavy);
+  padding-left: var(--space-md);
   min-width: 0;
 }
 
@@ -174,7 +173,7 @@
 
 .ruleThick {
   border: 0;
-  border-top: 3px solid var(--color-ink);
+  border-top: var(--rule-hair) solid var(--color-rule-heavy);
   margin: 0;
 }
 
@@ -194,11 +193,11 @@
 
 .sheetTitle {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 400;
   font-style: normal;
   font-size: var(--text-2xl);
   line-height: 1.15;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.008em;
   overflow-wrap: anywhere;
   min-width: 0;
   margin: 0;
@@ -210,7 +209,7 @@
    ciltten kenara kadar uzanır. Kap kendi içinde kayar, sayfa kaymaz. */
 .ledgerScroll {
   overflow-x: auto;
-  border-block: var(--rule-hair) solid var(--color-rule-heavy);
+  border-top: var(--rule-hair) solid var(--color-rule-heavy);
   background: var(--color-paper);
 }
 
@@ -225,7 +224,6 @@
 .ledger td {
   padding: 0.625rem var(--space-2xs);
   text-align: left;
-  border-bottom: var(--rule-hair) solid var(--color-rule);
 }
 
 .ledger th:first-child,
@@ -266,7 +264,6 @@
   text-align: right;
   white-space: nowrap;
   color: var(--color-ink-2);
-  border-left: var(--rule-hair) solid var(--color-rule);
 }
 
 /* Sayfadaki tek doygun renk paranın kendisinde. Dolgu, arka plan ya da
@@ -292,11 +289,11 @@
 
 .keepLeadTitle {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 400;
   font-style: normal;
   font-size: var(--text-2xl);
   line-height: 1.15;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.008em;
   overflow-wrap: anywhere;
   min-width: 0;
   margin: 0 0 var(--space-2xs);
@@ -340,12 +337,12 @@
   display: grid;
   gap: var(--space-lg);
   background: var(--color-paper-2);
-  border-top: 3px solid var(--color-ink);
+  border-top: var(--rule-hair) solid var(--color-rule-heavy);
 }
 
 .footerLine {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 400;
   font-style: normal;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   line-height: 1.08;

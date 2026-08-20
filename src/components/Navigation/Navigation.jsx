@@ -12,17 +12,17 @@ const Navigation = () => {
   const navItems = [
     {
       path: '/home',
-      label: 'Home',
+      label: 'Ana sayfa',
       icon: homeIcon
     },
     {
       path: '/statistics',
-      label: 'Statistics',
+      label: 'İstatistik',
       icon: statisticIcon
     },
     {
       path: '/currency',
-      label: 'Currency',
+      label: 'Döviz',
       icon: currencyIcon,
       mobileOnly: true
     }

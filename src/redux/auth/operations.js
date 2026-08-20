@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { demoyaBagla } from '../../demo/demoAdapter';
 import { loginStart, loginSuccess, loginFailure, registerStart, registerSuccess, registerFailure, clearError, logout } from './slice.js';
 
 // API base URL
@@ -12,6 +13,9 @@ const api = axios.create({
     'Content-Type': 'application/json',
   },
 });
+
+/* Demo kipi acikken istekler aga cikmaz, bellekten karsilanir. */
+demoyaBagla(api);
 
 // Request interceptor to add token
 api.interceptors.request.use(

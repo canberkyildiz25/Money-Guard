@@ -51,7 +51,7 @@ const Header = () => {
                 <polyline points="16,17 21,12 16,7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 <line x1="21" y1="12" x2="9" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              <span className={styles.logoutText}>Exit</span>
+              <span className={styles.logoutText}>Çıkış</span>
             </button>
           </div>
         </div>

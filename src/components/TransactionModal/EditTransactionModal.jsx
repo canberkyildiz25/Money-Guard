@@ -98,7 +98,7 @@ const EditTransactionModal = ({ isOpen, onClose, transaction }) => {
         <form onSubmit={handleSubmit} className={styles.form}>
           {/* Transaction Type Display - Income / Expense side by side */}
           <div className={styles.formGroup}>
-            <label className={styles.label}>Transaction Type</label>
+            <label className={styles.label}>İşlem türü</label>
             <div className={styles.editTypeDisplay}>
               <span className={`${styles.editTypeText} ${formData.type === 'INCOME' ? styles.active : ''}`}>
                 Income
@@ -113,14 +113,14 @@ const EditTransactionModal = ({ isOpen, onClose, transaction }) => {
           {/* Category Selection - shown based on formData.type */}
           {formData.type === 'EXPENSE' && (
             <div className={styles.formGroup}>
-              <label className={styles.label}>Select a category</label>
+              <label className={styles.label}>Kategori seçin</label>
               <select
                 value={formData.category}
                 onChange={(e) => handleInputChange('category', e.target.value)}
                 className={styles.select}
                 required
               >
-                <option value="">Select a category</option>
+                <option value="">Kategori seçin</option>
                 {categories && categories
                   .filter(cat => cat.type === 'EXPENSE')
                   .map((category) => (
@@ -138,7 +138,7 @@ const EditTransactionModal = ({ isOpen, onClose, transaction }) => {
             <div className={styles.formGroup}>
               <input
                 type="number"
-                placeholder="0.00"
+                placeholder="0,00"
                 value={formData.amount}
                 onChange={(e) => handleInputChange('amount', e.target.value)}
                 className={styles.input}
@@ -162,7 +162,7 @@ const EditTransactionModal = ({ isOpen, onClose, transaction }) => {
           <div className={styles.formGroup}>
             <input
               type="text"
-              placeholder="Comment"
+              placeholder="Açıklama"
               value={formData.comment}
               onChange={(e) => handleInputChange('comment', e.target.value)}
               className={styles.input}

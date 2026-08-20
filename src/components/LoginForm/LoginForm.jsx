@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser, clearError } from '../../redux/auth/operations';
+import { demoBaslat } from '../../demo/demoAdapter';
 import { selectLoading, selectError, selectIsAuthenticated } from '../../redux/auth/selectors';
 import styles from './Loginform.module.css';
 import loginLogo from '../../assets/login-logo.svg';
@@ -64,6 +65,16 @@ const LoginForm = () => {
         console.error('Login failed:', validationError);
       }
     }
+  };
+
+  /* Demo: agla konusmadan, kayit olmadan, parola girmeden butun ekranlari
+     gezmek icin. Bayrak axios adaptorunu bellege cevirir; asagidaki istek
+     gercek sunucuya degil DEMO verisine gider. */
+  const handleDemoClick = async () => {
+    dispatch(clearError());
+    demoBaslat();
+    await dispatch(loginUser({ email: 'demo@moneyguard.local', password: 'demo' })).unwrap();
+    navigate('/dashboard');
   };
 
   const handleRegisterClick = () => {
@@ -137,7 +148,7 @@ const LoginForm = () => {
           className={`${styles.btn} ${styles.btnPrimary} ${loading ? styles.loading : ''}`}
           disabled={loading}
         >
-          {loading ? 'Logging in...' : 'LOG IN'}
+          {loading ? 'Giriş yapılıyor…' : 'Giriş yap'}
         </button>
 
         <button 
@@ -145,8 +156,21 @@ const LoginForm = () => {
           onClick={handleRegisterClick}
           className={`${styles.btn} ${styles.btnSecondary}`}
         >
-          REGISTER
+          Hesap aç
         </button>
+
+        <button
+          type="button"
+          onClick={handleDemoClick}
+          className={`${styles.btn} ${styles.btnDemo}`}
+        >
+          Demo olarak gez
+        </button>
+
+        <p className={styles.demoNote}>
+          Kayıt gerekmez. Örnek bir hesapla tüm ekranlar gezilebilir; hiçbir veri
+          sunucuya gönderilmez.
+        </p>
       </form>
     </div>
   );

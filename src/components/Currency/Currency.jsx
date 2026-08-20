@@ -135,9 +135,9 @@ const Currency = () => {
       {/* Tablo */}
       <div className={styles.currencyTable}>
         <div className={styles.currencyHeader}>
-          <span className={styles.hCurrency}>Currency</span>
-          <span className={styles.hCol}>Purchase</span>
-          <span className={styles.hCol}>Sale</span>
+          <span className={styles.hCurrency}>Döviz</span>
+          <span className={styles.hCol}>Alış</span>
+          <span className={styles.hCol}>Satış</span>
         </div>
 
         {displayCurrencies.map((c, i) => {

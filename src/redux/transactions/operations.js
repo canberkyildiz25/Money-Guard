@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { demoyaBagla } from '../../demo/demoAdapter';
 
 const API_BASE_URL = 'https://wallet.b.goit.study/api';
 
@@ -9,6 +10,9 @@ const api = axios.create({
         'Content-Type': 'application/json',
     },
 });
+
+/* Demo kipi acikken istekler aga cikmaz, bellekten karsilanir. */
+demoyaBagla(api);
 
 api.interceptors.request.use(
     config => {

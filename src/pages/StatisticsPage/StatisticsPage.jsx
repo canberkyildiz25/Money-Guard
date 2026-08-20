@@ -36,7 +36,7 @@ const StatisticsPage = () => {
           
           {/* Balance Section */}
           <div className={styles.balanceSection}>
-            <h3 className={styles.balanceTitle}>YOUR BALANCE</h3>
+            <h3 className={styles.balanceTitle}>TOPLAM BAKİYE</h3>
             <div className={styles.balanceAmount}>{formatTRY(totalBalance)}</div>
           </div>
           
@@ -49,7 +49,7 @@ const StatisticsPage = () => {
         {/* Main Content */}
         <main className={styles.mainContent}>
           <div className={styles.content}>
-            <h1 className={styles.pageTitle}>Statistics</h1>
+            <h1 className={styles.pageTitle}>İstatistik</h1>
             <StatisticsDashboard />
           </div>
         </main>
@@ -66,7 +66,7 @@ const StatisticsPage = () => {
 
               {/* Balance */}
               <div className={styles.balanceSection}>
-                <h3 className={styles.balanceTitle}>YOUR BALANCE</h3>
+                <h3 className={styles.balanceTitle}>TOPLAM BAKİYE</h3>
                 <div className={styles.balanceAmount}>{formatTRY(totalBalance)}</div>
               </div>
             </div>
@@ -81,7 +81,7 @@ const StatisticsPage = () => {
         {/* Alt kısım - Statistics Dashboard */}
         <main className={styles.mainContent}>
           <div className={styles.statisticsContainer}>
-            <h1 className={styles.pageTitle}>Statistics</h1>
+            <h1 className={styles.pageTitle}>İstatistik</h1>
             <StatisticsDashboard />
           </div>
         </main>

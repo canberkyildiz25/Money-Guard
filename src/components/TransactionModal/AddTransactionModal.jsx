@@ -116,7 +116,7 @@ useEffect(() => {
         aria-modal="true"
       >
         <div className={styles.modalHeader}>
-          <h2 className={styles.modalTitle}>Add transaction</h2>
+          <h2 className={styles.modalTitle}>İşlem ekle</h2>
           <button className={styles.closeButton} onClick={onClose} aria-label="Close">
             <svg viewBox="0 0 24 24" fill="none" className={styles.closeIcon}>
               <path
@@ -161,14 +161,14 @@ useEffect(() => {
           {/* EXPENSE'te kategori seçimi */}
           {formData.type === "EXPENSE" && (
             <div className={styles.formGroup}>
-              <label className={styles.label}>Select a category</label>
+              <label className={styles.label}>Kategori seçin</label>
               <select
                 className={styles.select}
                 value={formData.category}
                 onChange={(e) => setField("category", e.target.value)}
                 required
               >
-                <option value="">Select a category</option>
+                <option value="">Kategori seçin</option>
                 {categories
                   .filter((c) => c.type === "EXPENSE")
                   .map((c) => (
@@ -186,7 +186,7 @@ useEffect(() => {
               <input
                 className={styles.input}
                 type="number"
-                placeholder="0.00"
+                placeholder="0,00"
                 step="0.01"
                 min="0"
                 value={formData.amount}
@@ -210,7 +210,7 @@ useEffect(() => {
             <input
               className={styles.input}
               type="text"
-              placeholder="Comment"
+              placeholder="Açıklama"
               value={formData.comment}
               onChange={(e) => setField("comment", e.target.value)}
             />

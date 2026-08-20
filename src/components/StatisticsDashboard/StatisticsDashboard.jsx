@@ -17,7 +17,14 @@ const StatisticsDashboard = () => {
   const categories = useSelector(selectTransactionCategories);
   const currentYear = new Date().getFullYear();
 
-  const [selectedMonth, setSelectedMonth] = useState("September");
+  /* Varsayilan ay sabit "September" yaziliydi: sayfa hangi ayda acilirsa
+     acilsin Eylul ayini gosteriyordu, yani yilin 11 ayinda bos bir grafikle
+     aciliyordu. Icinde bulunulan ay dogru varsayilan. */
+  const MONTHS = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December",
+  ];
+  const [selectedMonth, setSelectedMonth] = useState(MONTHS[new Date().getMonth()]);
   const [selectedYear, setSelectedYear] = useState(String(currentYear));
 
   const months = [
@@ -231,8 +238,8 @@ const StatisticsDashboard = () => {
             {filteredTransactions && filteredTransactions.length > 0 ? (
               <div className={styles.transactionsTable}>
                 <div className={styles.tableHeader}>
-                  <span>Category</span>
-                  <span>Comment</span>
+                  <span>Kategori</span>
+                  <span>Açıklama</span>
                   <span>Amount</span>
                 </div>
 
@@ -340,7 +347,7 @@ const StatisticsDashboard = () => {
           {filteredTransactions.length > 0 ? (
             <div className={styles.mobileTransactionsTable}>
               <div className={styles.mobileTableHeader}>
-                <span>Category</span>
+                <span>Kategori</span>
                 <span>Amount</span>
               </div>
 

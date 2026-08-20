@@ -38,14 +38,14 @@ That is the system's single strongest rule.
 
 ## Theme
 
-- `--color-paper`   oklch(0.972 0.012 92)   /* safety-tint straw, not white */
-- `--color-paper-2` oklch(0.945 0.014 90)   /* ruled band, table zebra */
-- `--color-paper-3` oklch(0.915 0.016 88)   /* wells, inset fields */
-- `--color-ink`     oklch(0.22 0.015 60)    /* warm near-black, iron-gall */
-- `--color-ink-2`   oklch(0.44 0.012 62)    /* secondary text */
+- `--color-paper`   oklch(0.985 0.004 85)   /* off-white; the straw tint read rustic, not elegant */
+- `--color-paper-2` oklch(0.967 0.005 84)   /* ruled band, table zebra */
+- `--color-paper-3` oklch(0.942 0.006 84)   /* wells, inset fields */
+- `--color-ink`     oklch(0.20 0.010 60)    /* warm near-black, iron-gall */
+- `--color-ink-2`   oklch(0.43 0.009 62)    /* secondary text */
 - `--color-ink-3`   oklch(0.515 0.011 64)   /* labels, captions — graded 4.5:1 on paper-2, the darkest surface it lands on */
-- `--color-rule`    oklch(0.87 0.013 88)    /* hairlines */
-- `--color-accent`  oklch(0.44 0.075 62)    /* tobacco */
+- `--color-rule`    oklch(0.905 0.005 85)   /* hairlines — fainter, and half as many of them */
+- `--color-accent`  oklch(0.38 0.055 55)    /* tobacco, deepened and desaturated */
 - `--color-accent-hover` oklch(0.38 0.080 60)
 - `--color-accent-ink`   oklch(0.972 0.012 92)
 - `--color-focus`   oklch(0.44 0.075 62)
@@ -59,10 +59,10 @@ Accent coverage stays under 5 % of any viewport.
 
 ## Typography
 
-- Display: Fraunces, weight 600, style normal. Roman only — no italic headers.
-- Body:    IBM Plex Sans, weight 400 / 500
+- Display: Newsreader, weight 400, style normal. Roman only — no italic headers.
+- Body:    Instrument Sans, weight 400 / 500
 - Figures: IBM Plex Mono, weight 400 / 500 — **tabular-nums always**
-- Display tracking: -0.02em
+- Display tracking: -0.012em
 - Type scale anchor: `--text-display` = clamp(2.5rem, 6vw, 4.25rem)
 
 Every currency amount, date, percentage, and account number is set in
@@ -123,6 +123,14 @@ ledger that does not align is a ledger you cannot scan.
 - Macrostructure within the family.
 - Hero archetype on marketing.
 - Whether a table is zebra-striped or hairline-ruled.
+
+## Demo mode
+
+The app talks to a third-party training API. A portfolio visitor should not
+have to register there to see the screens, and that server going away should
+not kill the demo. "Demo olarak gez" flips a flag that swaps the axios adapter
+for an in-memory one: seeded records for three months, add and delete really
+work, nothing leaves the browser, and a refresh resets it.
 
 ## Bans, specific to this project
 
