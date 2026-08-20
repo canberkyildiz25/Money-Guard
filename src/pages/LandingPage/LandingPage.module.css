@@ -1,472 +1,416 @@
-/* ===========================
-   Landing Page - Money Guard
-   =========================== */
+/* Hallmark · genre: editorial · macrostructure: Marquee Hero · design-system: design.md · designed-as-app
+ * theme: Defter — safety-tint straw paper · Fraunces display · tobacco accent
+ * nav: N9 edge-aligned · footer: Ft5 statement · enrichment: Tier-A full-bleed ledger
+ * pre-emit critique: P5 H5 E5 S5 R5 V5
+ *
+ * Replaces a Letter build that stacked everything in one even column. The
+ * tension here is between a near-silent fold and the dense sheet under it:
+ * the cover states one thing at 12vw, then a 3px rule, then the ledger runs
+ * edge to edge. Same tokens, same voice — a different shape.
+ */
 
 .page {
   min-height: 100vh;
-  position: relative;
-  overflow: hidden;
-  font-family: var(--font-primary);
-  color: #f9fafb;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  line-height: 1.6;
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --measure: 36rem;
 }
 
-/* Animasyonlu arka plan blob'ları */
-.bgBlob1,
-.bgBlob2,
-.bgBlob3 {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(80px);
-  pointer-events: none;
-  z-index: 0;
-  animation: blobPulse 8s ease-in-out infinite;
-}
+/* ─────────────────────────────────────────────────────────────
+   Antetli kâğıt
+   ───────────────────────────────────────────────────────────── */
 
-.bgBlob1 {
-  width: 500px;
-  height: 500px;
-  background: rgba(79, 70, 229, 0.35);
-  top: -100px;
-  left: -150px;
-  animation-delay: 0s;
-}
-
-.bgBlob2 {
-  width: 400px;
-  height: 400px;
-  background: rgba(16, 185, 129, 0.25);
-  top: 30%;
-  right: -100px;
-  animation-delay: 3s;
-}
-
-.bgBlob3 {
-  width: 350px;
-  height: 350px;
-  background: rgba(245, 158, 11, 0.2);
-  bottom: 10%;
-  left: 20%;
-  animation-delay: 6s;
-}
-
-@keyframes blobPulse {
-  0%, 100% { transform: scale(1) translate(0, 0); }
-  50% { transform: scale(1.15) translate(20px, -20px); }
-}
-
-/* ===========================
-   Header / Navbar
-   =========================== */
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+.letterhead {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
-  background: rgba(17, 24, 39, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--gutter);
+  border-bottom: var(--rule-hair) solid var(--color-rule);
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.logoIcon {
-  font-size: 1.75rem;
-}
-
-.logoText {
-  font-family: var(--font-secondary);
-  font-size: 1.25rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #a78bfa, #34d399);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.navLogin {
-  padding: 0.4rem 1.1rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 999px;
-  font-size: 0.875rem;
-  color: #e5e7eb;
-  text-decoration: none;
-  transition: all 200ms ease;
-}
-
-.navLogin:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-}
-
-.navRegister {
-  padding: 0.4rem 1.1rem;
-  border-radius: 999px;
-  font-size: 0.875rem;
+.wordmark {
+  font-family: var(--font-display);
   font-weight: 600;
-  color: #fff;
-  text-decoration: none;
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
-  transition: all 200ms ease;
-  box-shadow: 0 0 16px rgba(79, 70, 229, 0.4);
+  font-size: var(--text-lg);
+  letter-spacing: -0.015em;
+  color: var(--color-ink);
 }
 
-.navRegister:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 0 24px rgba(79, 70, 229, 0.6);
-}
-
-/* ===========================
-   Hero Bölümü
-   =========================== */
-.hero {
-  position: relative;
-  z-index: 1;
+.letterheadNav {
   display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Eylemler
+   ───────────────────────────────────────────────────────────── */
+
+.ctaSolid,
+.ctaOutline,
+.linkQuiet {
+  /* 44px dokunma tabanı; 37px başparmakların ıskaladığı aralıkta. */
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 4rem;
-  padding: 5rem 2rem 4rem;
-  max-width: 1100px;
-  margin: 0 auto;
+  min-height: 44px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  border-radius: var(--radius-input);
+  transition: background-color var(--dur-press) var(--ease-out),
+    color var(--dur-press) var(--ease-out),
+    border-color var(--dur-press) var(--ease-out);
 }
 
-.heroContent {
-  flex: 1;
+.ctaSolid {
+  padding-inline: var(--space-md);
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  border: var(--rule-hair) solid var(--color-accent);
+}
+
+.ctaOutline {
+  padding-inline: var(--space-md);
+  background: transparent;
+  color: var(--color-ink);
+  border: var(--rule-hair) solid var(--color-rule-heavy);
+}
+
+.linkQuiet {
+  padding-inline: var(--space-2xs);
+  color: var(--color-ink-2);
+  border: var(--rule-hair) solid transparent;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ctaSolid:hover { background: var(--color-accent-hover); border-color: var(--color-accent-hover); }
+  .ctaOutline:hover { border-color: var(--color-ink); }
+  .linkQuiet:hover { color: var(--color-ink); }
+}
+
+.ctaSolid:active,
+.ctaOutline:active { transform: translateY(1px); }
+
+.ctaSolid:focus-visible,
+.ctaOutline:focus-visible,
+.linkQuiet:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Kapak. Katlamanın üstü tek bir cümle; düğme yok.
+   ───────────────────────────────────────────────────────────── */
+
+.marquee {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: var(--space-xl);
+  padding: clamp(3rem, 11vh, 8rem) var(--gutter) clamp(2rem, 6vh, 4rem);
+  min-height: 62vh;
+}
+
+.marqueeTitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-style: normal;
+  /* Kenarlara yaslanan gerçek bir görsel ölçek. Alt sınır tabletlerde
+     satırın kırılmaması için 2.75rem'de tutuluyor. */
+  font-size: clamp(2.75rem, 12vw, 9rem);
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  overflow-wrap: anywhere;
+  min-width: 0;
+  margin: 0;
+  color: var(--color-ink);
+}
+
+/* Dönem özeti. Sol marjda etiket / sağda başlık kalıbı yasak olduğu için
+   bu sütun etiket değil veri taşıyor — defterin kapağındaki hesap özeti. */
+.period {
+  display: grid;
+  gap: var(--space-2xs);
+  margin: 0;
+  padding-left: var(--space-md);
+  border-left: var(--rule-hair) solid var(--color-rule-heavy);
   min-width: 0;
 }
 
-.heroBadge {
-  display: inline-block;
-  padding: 0.25rem 0.85rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: rgba(79, 70, 229, 0.25);
-  border: 1px solid rgba(79, 70, 229, 0.4);
-  color: #a78bfa;
-  margin-bottom: 1rem;
-}
-
-.heroTitle {
-  font-family: var(--font-secondary);
-  font-size: clamp(2rem, 5vw, 3.25rem);
-  font-weight: 700;
-  line-height: 1.15;
-  color: #f9fafb;
-  margin-bottom: 1.25rem;
-}
-
-.heroTitleAccent {
-  background: linear-gradient(135deg, #818cf8, #34d399);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.heroDesc {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: #9ca3af;
-  margin-bottom: 2rem;
-  max-width: 480px;
-}
-
-.heroCta {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.ctaPrimary {
-  display: inline-block;
-  padding: 0.75rem 2rem;
-  border-radius: 999px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #fff;
-  text-decoration: none;
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
-  box-shadow: 0 0 20px rgba(79, 70, 229, 0.45);
-  transition: all 250ms ease;
-}
-
-.ctaPrimary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 32px rgba(79, 70, 229, 0.65);
-  color: #fff;
-}
-
-.ctaSecondary {
-  display: inline-block;
-  padding: 0.75rem 2rem;
-  border-radius: 999px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #e5e7eb;
-  text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.06);
-  transition: all 250ms ease;
-}
-
-.ctaSecondary:hover {
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
-  transform: translateY(-2px);
-}
-
-/* ===========================
-   Mock Dashboard Kartı
-   =========================== */
-.heroVisual {
-  flex: 0 0 auto;
-  display: flex;
-  justify-content: center;
-}
-
-.mockCard {
-  width: 300px;
-  background: rgba(31, 41, 55, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1.25rem;
-  padding: 1.5rem;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
-  animation: floatCard 4s ease-in-out infinite;
-}
-
-@keyframes floatCard {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-.mockCardHeader {
-  display: flex;
-  gap: 0.4rem;
-  margin-bottom: 1.25rem;
-}
-
-.mockDot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.mockBalance {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  margin-bottom: 1.25rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.mockBalanceLabel {
-  font-size: 0.75rem;
-  color: #6b7280;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.mockBalanceAmount {
-  font-family: var(--font-secondary);
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #f9fafb;
-}
-
-.mockTransactions {
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-}
-
-.mockTxRow {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.mockTxType {
-  font-size: 1rem;
-  font-weight: 700;
-  width: 16px;
-  flex-shrink: 0;
-}
-
-.mockTxLabel {
-  flex: 1;
-  font-size: 0.875rem;
-  color: #d1d5db;
-}
-
-.mockTxAmount {
-  font-size: 0.875rem;
-  font-weight: 600;
-}
-
-/* ===========================
-   Özellikler Bölümü
-   =========================== */
-.features {
-  position: relative;
-  z-index: 1;
-  padding: 3rem 2rem 4rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.featuresTitle {
-  font-family: var(--font-secondary);
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 700;
-  color: #f9fafb;
-  text-align: center;
-  margin-bottom: 2.5rem;
-}
-
-.featuresGrid {
+.periodRow {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: auto auto;
+  gap: var(--space-sm);
+  justify-content: space-between;
+  align-items: baseline;
 }
 
-.featureCard {
-  background: rgba(31, 41, 55, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 1rem;
-  padding: 1.75rem 1.5rem;
-  transition: transform 250ms ease, box-shadow 250ms ease;
+.period dt {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+  color: var(--color-ink-3);
 }
 
-.featureCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(79, 70, 229, 0.2);
-  border-color: rgba(79, 70, 229, 0.3);
+.period dd {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-ink);
+  white-space: nowrap;
 }
 
-.featureIcon {
-  font-size: 2rem;
-  margin-bottom: 0.75rem;
+.periodTotal { font-size: var(--text-lg); font-weight: 500; }
+
+.ruleThick {
+  border: 0;
+  border-top: 3px solid var(--color-ink);
+  margin: 0;
 }
 
-.featureTitle {
-  font-family: var(--font-secondary);
-  font-size: 1rem;
+/* ─────────────────────────────────────────────────────────────
+   Sayfa. Kenardan kenara.
+   ───────────────────────────────────────────────────────────── */
+
+.sheet { padding-block: var(--space-xl) var(--space-2xl); }
+
+.sheetHead {
+  display: grid;
+  gap: var(--space-2xs);
+  max-width: var(--measure);
+  padding-inline: var(--gutter);
+  margin-bottom: var(--space-lg);
+}
+
+.sheetTitle {
+  font-family: var(--font-display);
   font-weight: 600;
-  color: #f9fafb;
-  margin-bottom: 0.5rem;
+  font-style: normal;
+  font-size: var(--text-2xl);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  overflow-wrap: anywhere;
+  min-width: 0;
+  margin: 0;
 }
 
-.featureDesc {
-  font-size: 0.875rem;
-  line-height: 1.6;
-  color: #9ca3af;
-  margin-bottom: 0;
+.sheetNote { margin: 0; color: var(--color-ink-2); }
+
+/* Tablo kabı sayfa oluğunu yok sayıp kenara dayanıyor — defter sayfası
+   ciltten kenara kadar uzanır. Kap kendi içinde kayar, sayfa kaymaz. */
+.ledgerScroll {
+  overflow-x: auto;
+  border-block: var(--rule-hair) solid var(--color-rule-heavy);
+  background: var(--color-paper);
 }
 
-/* ===========================
-   Alt CTA Bölümü
-   =========================== */
-.bottomCta {
-  position: relative;
-  z-index: 1;
-  padding: 2rem 2rem 4rem;
-  display: flex;
-  justify-content: center;
-}
-
-.bottomCtaCard {
-  text-align: center;
-  background: rgba(79, 70, 229, 0.15);
-  border: 1px solid rgba(79, 70, 229, 0.3);
-  border-radius: 1.5rem;
-  padding: 3rem 2.5rem;
-  max-width: 520px;
+.ledger {
   width: 100%;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  min-width: 40rem;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
 }
 
-.bottomCtaTitle {
-  font-family: var(--font-secondary);
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #f9fafb;
-  margin-bottom: 0.75rem;
+.ledger th,
+.ledger td {
+  padding: 0.625rem var(--space-2xs);
+  text-align: left;
+  border-bottom: var(--rule-hair) solid var(--color-rule);
 }
 
-.bottomCtaDesc {
-  font-size: 1rem;
-  color: #9ca3af;
-  margin-bottom: 1.75rem;
+.ledger th:first-child,
+.ledger td:first-child { padding-left: var(--gutter); }
+
+.ledger th:last-child,
+.ledger td:last-child { padding-right: var(--gutter); }
+
+.ledger tbody tr:last-child td { border-bottom: 0; }
+
+.ledger thead th {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+  color: var(--color-ink-3);
+  border-bottom-color: var(--color-rule-heavy);
 }
 
-/* ===========================
-   Footer
-   =========================== */
+.ledger tbody tr:nth-child(even) { background: var(--color-paper-2); }
+
+/* Rakamlar tabular. Bir defterde tutarlar hizalanmazsa taranamaz —
+   süs değil, tablonun çalışma şartı. */
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+.colDate { width: 5rem; color: var(--color-ink-3); }
+.colDesc { color: var(--color-ink); }
+.colCat { color: var(--color-ink-2); white-space: nowrap; }
+.colAmount { text-align: right; white-space: nowrap; }
+
+/* Yürüyen bakiye sütunu, defterdeki gibi ayrı bir cetvelle ayrılıyor. */
+.colBalance {
+  text-align: right;
+  white-space: nowrap;
+  color: var(--color-ink-2);
+  border-left: var(--rule-hair) solid var(--color-rule);
+}
+
+/* Sayfadaki tek doygun renk paranın kendisinde. Dolgu, arka plan ya da
+   düğme olarak asla görünmez. */
+.gelir { color: var(--color-income); }
+.gider { color: var(--color-expense); }
+
+.caption {
+  margin: var(--space-2xs) 0 0;
+  padding-inline: var(--gutter);
+  font-size: var(--text-xs);
+  color: var(--color-ink-3);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Defterin tuttukları
+   ───────────────────────────────────────────────────────────── */
+
+.keeps {
+  padding: var(--space-xl) var(--gutter) var(--space-2xl);
+  border-top: var(--rule-hair) solid var(--color-rule);
+}
+
+.keepLeadTitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-style: normal;
+  font-size: var(--text-2xl);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  overflow-wrap: anywhere;
+  min-width: 0;
+  margin: 0 0 var(--space-2xs);
+}
+
+.keepLeadBody {
+  margin: 0 0 var(--space-lg);
+  max-width: var(--measure);
+  color: var(--color-ink-2);
+  padding-bottom: var(--space-lg);
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+}
+
+.keepList { margin: 0; }
+
+.keepRow {
+  display: grid;
+  grid-template-columns: 14rem 1fr;
+  gap: var(--space-md);
+  padding-block: var(--space-md);
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+}
+
+.keepTerm { font-weight: 500; color: var(--color-ink); margin: 0; }
+
+.keepDesc { margin: 0; max-width: var(--measure); color: var(--color-ink-2); }
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  margin-top: var(--space-lg);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Kapanış
+   ───────────────────────────────────────────────────────────── */
+
 .footer {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  padding: 1.5rem 2rem;
-  font-size: 0.8rem;
-  color: #4b5563;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: var(--space-2xl) var(--gutter) var(--space-xl);
+  display: grid;
+  gap: var(--space-lg);
+  background: var(--color-paper-2);
+  border-top: 3px solid var(--color-ink);
 }
 
-/* ===========================
-   Responsive
-   =========================== */
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    padding: 3rem 1.25rem 2.5rem;
-    gap: 2.5rem;
-    text-align: center;
-  }
+.footerLine {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-style: normal;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+  min-width: 0;
+  max-width: 24ch;
+  margin: 0;
+}
 
-  .heroDesc {
-    max-width: 100%;
-  }
+.footerMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-sm);
+  padding-top: var(--space-sm);
+  border-top: var(--rule-hair) solid var(--color-rule);
+}
 
-  .heroCta {
-    justify-content: center;
-  }
+.footerNote {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-ink-3);
+}
 
-  .mockCard {
-    width: 260px;
-  }
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
 
-  .header {
-    padding: 0.75rem 1.25rem;
-  }
+/* ───────────────────────────────────────────────────────────── */
 
-  .features {
-    padding: 2rem 1.25rem 3rem;
+@media (max-width: 860px) {
+  /* Kapak tek sütuna iner: özet başlığın altına geçer, sol cetvel üst
+     cetvele döner. */
+  .marquee {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: var(--space-lg);
+    min-height: auto;
   }
+  .period {
+    padding-left: 0;
+    padding-top: var(--space-sm);
+    border-left: 0;
+    border-top: var(--rule-hair) solid var(--color-rule-heavy);
+  }
+  .periodRow { justify-content: start; grid-template-columns: 6rem auto; }
+}
 
-  .bottomCtaCard {
-    padding: 2rem 1.5rem;
-  }
+@media (max-width: 640px) {
+  .keepRow { grid-template-columns: 1fr; gap: var(--space-3xs); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ctaSolid,
+  .ctaOutline,
+  .linkQuiet { transition-duration: 0.01ms; }
+  .ctaSolid:active,
+  .ctaOutline:active { transform: none; }
 }

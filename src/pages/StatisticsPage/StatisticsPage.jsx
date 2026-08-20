@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatTRY } from "../../utils/currency";
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/selectors';
 import { selectTotalBalance } from '../../redux/transactions/selectors';
@@ -36,7 +37,7 @@ const StatisticsPage = () => {
           {/* Balance Section */}
           <div className={styles.balanceSection}>
             <h3 className={styles.balanceTitle}>YOUR BALANCE</h3>
-            <div className={styles.balanceAmount}>€ {totalBalance}</div>
+            <div className={styles.balanceAmount}>{formatTRY(totalBalance)}</div>
           </div>
           
           {/* Currency Component - API'den veri çekiyor */}
@@ -66,7 +67,7 @@ const StatisticsPage = () => {
               {/* Balance */}
               <div className={styles.balanceSection}>
                 <h3 className={styles.balanceTitle}>YOUR BALANCE</h3>
-                <div className={styles.balanceAmount}>€ {totalBalance}</div>
+                <div className={styles.balanceAmount}>{formatTRY(totalBalance)}</div>
               </div>
             </div>
 

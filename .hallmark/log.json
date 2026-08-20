@@ -1,0 +1,25 @@
+[
+  {
+    "date": "2026-08-17",
+    "macrostructure": "Marquee Hero",
+    "theme": "Defter (custom)",
+    "theme_axes": "light paper / roman-serif display / warm accent",
+    "enrichment": "Tier-A full-bleed ledger",
+    "nav": "N9 edge-aligned",
+    "footer": "Ft5 statement",
+    "scope": "app",
+    "brief": "Money Guard — landing rebuilt: Letter had no structural tension"
+  },
+  {
+    "date": "2026-08-17",
+    "macrostructure": "Letter",
+    "theme": "Defter (custom)",
+    "theme_axes": "light paper / roman-serif display / warm accent",
+    "vibe": "account book, safety-tint paper, iron-gall ink",
+    "enrichment": "Tier-A ruled ledger table",
+    "nav": "N9 edge-aligned",
+    "footer": "Ft5 statement",
+    "scope": "app",
+    "brief": "Money Guard — Turkish personal finance app, landing + 6 app routes"
+  }
+]

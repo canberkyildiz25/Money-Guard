@@ -1,15 +1,16 @@
 import React, { useMemo, useState } from "react";
+import { formatTRY } from "../../utils/currency";
 import { useSelector } from "react-redux";
 import {
   selectTransactions,
   selectTransactionCategories,
 } from "../../redux/transactions/selectors";
-import { Doughnut } from "react-chartjs-2";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import CategoryBars from "../CategoryBars/CategoryBars";
+
 import FloatingDropdown from "../FloatingDropdown/FloatingDropdown";
 import styles from "./StatisticsDashboard.module.css";
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+
 
 const StatisticsDashboard = () => {
   const transactions = useSelector(selectTransactions);
@@ -182,27 +183,6 @@ const StatisticsDashboard = () => {
     };
   }, [filteredTransactions, categories]);
 
-  const chartOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false },
-      tooltip: {
-        callbacks: {
-          label: function (context) {
-            const label = context.label || "";
-            const value = context.parsed;
-            const total = context.dataset.data.reduce((a, b) => a + b, 0);
-            const percentage = ((value / total) * 100).toFixed(1);
-            return `${label}: €${value.toLocaleString(
-              "en-IN"
-            )} (${percentage}%)`;
-          },
-        },
-      },
-    },
-    cutout: "60%",
-  };
 
   return (
     <div className={styles.statisticsDashboard}>
@@ -213,11 +193,13 @@ const StatisticsDashboard = () => {
           {/* Left Side - Chart */}
           <div className={styles.chartSection}>
             <div className={styles.chartContainer}>
-              <Doughnut data={statistics.chartData} options={chartOptions} />
+              <CategoryBars
+                categoryExpenses={statistics.categoryExpenses}
+                total={statistics.totalExpense}
+              />
               <div className={styles.chartCenter}>
                 <div className={styles.balanceText}>
-                  €{" "}
-                  {statistics.balance}
+                  {formatTRY(statistics.balance)}
                 </div>
               </div>
             </div>
@@ -282,10 +264,7 @@ const StatisticsDashboard = () => {
                       </span>
 
                       <span className={`${styles.amount} ${isIncome ? styles.income : styles.expense}`}>
-                        €
-                        {Math.abs(transaction.amount).toLocaleString("en-IN", {
-                          minimumFractionDigits: 0,
-                        })}
+                        {formatTRY(Math.abs(transaction.amount))}
                       </span>
                     </div>
                   );
@@ -304,19 +283,13 @@ const StatisticsDashboard = () => {
               <div className={styles.summaryItem}>
                 <span className={styles.summaryLabel}>Expenses:</span>
                 <span className={styles.summaryValue}>
-                  €
-                  {statistics.totalExpense.toLocaleString("en-IN", {
-                    minimumFractionDigits: 0,
-                  })}
+                  {formatTRY(statistics.totalExpense)}
                 </span>
               </div>
               <div className={styles.summaryItem}>
                 <span className={styles.summaryLabel}>Income:</span>
                 <span className={`${styles.summaryValue} ${styles.income}`}>
-                  €
-                  {statistics.totalIncome.toLocaleString("en-IN", {
-                    minimumFractionDigits: 0,
-                  })}
+                  {formatTRY(statistics.totalIncome)}
                 </span>
               </div>
             </div>
@@ -329,11 +302,13 @@ const StatisticsDashboard = () => {
         {/* Chart Section */}
         <div className={styles.mobileChartSection}>
           <div className={styles.mobileChartContainer}>
-            <Doughnut data={statistics.chartData} options={chartOptions} />
+            <CategoryBars
+                categoryExpenses={statistics.categoryExpenses}
+                total={statistics.totalExpense}
+              />
             <div className={styles.mobileChartCenter}>
               <div className={styles.mobileBalanceText}>
-                €{" "}
-                {statistics.balance}
+                {formatTRY(statistics.balance)}
               </div>
             </div>
           </div>
@@ -390,9 +365,7 @@ const StatisticsDashboard = () => {
                       {categoryName}
                     </span>
                     <span className={`${styles.mobileAmount} ${isIncome ? styles.mobileIncome : ''}`}>
-                      €{Math.abs(transaction.amount).toLocaleString("en-IN", {
-                        minimumFractionDigits: 0,
-                      })}
+                      {formatTRY(Math.abs(transaction.amount))}
                     </span>
                   </div>
                 );
@@ -411,19 +384,13 @@ const StatisticsDashboard = () => {
             <div className={styles.mobileSummaryItem}>
               <span className={styles.mobileSummaryLabel}>Expenses:</span>
               <span className={styles.mobileSummaryValue}>
-                €
-                {statistics.totalExpense.toLocaleString("en-IN", {
-                  minimumFractionDigits: 2,
-                })}
+                {formatTRY(statistics.totalExpense)}
               </span>
             </div>
             <div className={styles.mobileSummaryItem}>
               <span className={styles.mobileSummaryLabel}>Income:</span>
               <span className={`${styles.mobileSummaryValue} ${styles.mobileIncome}`}>
-                €
-                {statistics.totalIncome.toLocaleString("en-IN", {
-                  minimumFractionDigits: 2,
-                })}
+                {formatTRY(statistics.totalIncome)}
               </span>
             </div>
           </div>

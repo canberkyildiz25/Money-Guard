@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { formatTRY } from "../../utils/currency";
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/selectors';
 import {
@@ -85,7 +86,7 @@ const DashboardPage = () => {
               {/* Balance */}
               <div className={styles.balanceSection}>
                 <h3 className={styles.balanceTitle}>YOUR BALANCE</h3>
-                <div className={styles.balanceAmount}>€ {totalBalance}</div>
+                <div className={styles.balanceAmount}>{formatTRY(totalBalance)}</div>
               </div>
             </div>
 
@@ -195,7 +196,7 @@ const DashboardPage = () => {
                             transaction.amount >= 0 ? styles.positive : styles.negative
                           }`}
                         >
-                          €{Math.abs(transaction.amount)}
+                          {formatTRY(Math.abs(transaction.amount))}
                         </span>
                       </div>
                       <div className={styles.mobileActions}>
