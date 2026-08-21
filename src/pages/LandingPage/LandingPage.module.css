@@ -1,12 +1,13 @@
 /* Hallmark · genre: editorial · macrostructure: Marquee Hero · design-system: design.md · designed-as-app
- * theme: Defter — safety-tint straw paper · Fraunces display · tobacco accent
+ * theme: Defter — off-white paper · Newsreader 400 display · deepened tobacco accent
  * nav: N9 edge-aligned · footer: Ft5 statement · enrichment: Tier-A full-bleed ledger
  * pre-emit critique: P5 H5 E5 S5 R5 V5
  *
  * Replaces a Letter build that stacked everything in one even column. The
- * tension here is between a near-silent fold and the dense sheet under it:
- * the cover states one thing at 12vw, then a 3px rule, then the ledger runs
- * edge to edge. Same tokens, same voice — a different shape.
+ * tension is between a near-silent fold and the dense sheet under it: the
+ * cover states one thing at 12vw, a hairline, then the ledger runs edge to
+ * edge. The straw paper and Fraunces of the first pass read rustic rather
+ * than elegant; the shape stayed, the execution quietened.
  */
 
 .page {
