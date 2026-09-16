@@ -183,7 +183,7 @@
 }
 
 .summaryValue.income {
-  color: var(--color-caution, var(--color-accent));
+  color: var(--color-income);
 }
 
 /* Transaction Table Section */
@@ -273,7 +273,7 @@
 }
 
 .amount.income {
-  color: var(--color-caution, var(--color-accent));
+  color: var(--color-income);
 }
 
 .noTransactions {
@@ -492,7 +492,7 @@
 }
 
 .mobileAmount.mobileIncome {
-  color: var(--color-caution, var(--color-accent));
+  color: var(--color-income);
 }
 
 .mobileNoTransactions {
@@ -532,7 +532,7 @@
 }
 
 .mobileSummaryValue.mobileIncome {
-  color: var(--color-caution, var(--color-accent));
+  color: var(--color-income);
 }
 
 /* Mobile Responsive Design */

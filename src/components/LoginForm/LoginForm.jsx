@@ -117,7 +117,7 @@ const LoginForm = () => {
           </div>
           <input
             type="email"
-            placeholder="Email"
+            placeholder="E-posta"
             {...register('email')}
             className={`${styles.inputField} ${formErrors.email ? styles.error : ''}`}
           />
@@ -134,7 +134,7 @@ const LoginForm = () => {
           </div>
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Parola"
             {...register('password')}
             className={`${styles.inputField} ${formErrors.password ? styles.error : ''}`}
           />

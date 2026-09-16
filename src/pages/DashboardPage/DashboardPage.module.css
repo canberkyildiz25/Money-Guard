@@ -1,57 +1,13 @@
 .dashboard {
   min-height: 100vh;
-  background-color: var(--color-ink);
+  background-color: var(--color-paper);
   position: relative;
   overflow: hidden;
 }
 
-/* Background SVG Elements */
-.ellipse14 {
-  position: absolute;
-  top: -200px;
-  right: -200px;
-  width: 1539px;
-  height: 1545px;
-  z-index: 0;
-}
 
-.ellipse16 {
-    position: absolute;
-    bottom: -300px;
-    left: 400px;
-    width: 1693px;
-    height: 1701px;
-    z-index: 0;
-}
 
-.ellipse18 {
-    position: absolute;
-    top: 1000px;
-    left: 1500px;
-    transform: translate(-50%, -50%);
-    width: 1100px;
-    height: 933px;
-    z-index: 0;
-}
 
-.ellipse19 {
-    position: absolute;
-    right: 400px;
-    width: 100vw;
-    height: 100vh;
-    z-index: 0;
-  
-}
-.ellipse20 {
-    position: absolute;
-    top: 700px;
-    left: 100px;
-    transform: translate(-50%, -50%);
-    width: 100vw;
-    height: 500px;
-    z-index: 0;
-  
-}
 
 .mainContainer {
   display: flex;
@@ -300,7 +256,8 @@
 
 /* Pozitif ve negatif sayılar için renk kodlaması - resimdeki gibi */
 .sum.positive {
-  color: var(--color-caution, var(--color-accent)); /* Sarı renk - pozitif değerler (Income) için */
+  color: var(--color-income); /* Gelir. Eski tasarımda sarıydı; renk taşıması tonuna bakıp onu aksana
+     çevirmişti, oysa sarının bir anlamı vardı. Anlam korunur, ton değişir. */
 }
 
 .sum.negative {
@@ -355,26 +312,36 @@
 
 
 /* Floating Action Button */
+/* İşlem ekle — sayfanın birincil eylemi. Eski gradyan kalkınca zemini
+   paper-2 kalmıştı: kâğıt üstünde görünmez bir disk ve havada asılı bir +.
+   design.md: tütün dolgu, 2px köşe. Hover konumu değil rengi değiştirir. */
 .fab {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: var(--space-lg);
+  right: var(--space-lg);
   width: 56px;
   height: 56px;
-  background: var(--color-paper-2);
-  border: none;
-  border-radius: 50%;
-  color: var(--color-ink);
+  background: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-input);
+  color: var(--color-accent-ink);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color var(--dur-press) var(--ease-out);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 10;
 }
 
-.fab:hover {
-  transform: translateY(-2px) scale(1.05);
+@media (hover: hover) and (pointer: fine) {
+  .fab:hover { background: var(--color-accent-hover); border-color: var(--color-accent-hover); }
+}
+
+.fab:active { transform: translateY(1px); }
+
+.fab:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
 }
 
 .fabIcon {
@@ -540,52 +507,9 @@
     font-size: 24px;
   }
   
-  .ellipse14 {
-    position: absolute;
-    top: -200px;
-    right: -200px;
-    width: 1539px;
-    height: 1545px;
-    z-index: 0;
-  }
   
-  .ellipse16 {
-      position: absolute;
-      bottom: -300px;
-      left: 400px;
-      width: 1693px;
-      height: 1701px;
-      z-index: 0;
-  }
   
-  .ellipse18 {
-      position: absolute;
-      top: 1000px;
-      left: 1500px;
-      transform: translate(-50%, -50%);
-      width: 1100px;
-      height: 933px;
-      z-index: 0;
-  }
   
-  .ellipse19 {
-      position: absolute;
-      right: 400px;
-      width: 100vw;
-      height: 100vh;
-      z-index: 0;
-    
-  }
-  .ellipse20 {
-      position: absolute;
-      top: 700px;
-      left: 100px;
-      transform: translate(-50%, -50%);
-      width: 100vw;
-      height: 500px;
-      z-index: 0;
-    
-  }
 }
 
 /* Mobile Responsive Design - 767px and below */
@@ -720,7 +644,7 @@
   }
   
   .transactionCardValue.sum.positive {
-    color: var(--color-caution, var(--color-accent));
+    color: var(--color-income);
   }
   
   .transactionCardValue.sum.negative {
@@ -795,52 +719,9 @@
   }
   
   /* Background ellipses için mobil optimizasyonu */
-  .ellipse14 {
-    position: absolute;
-    top: -200px;
-    right: -200px;
-    width: 1539px;
-    height: 1545px;
-    z-index: 0;
-  }
   
-  .ellipse16 {
-      position: absolute;
-      bottom: -300px;
-      left: 400px;
-      width: 1693px;
-      height: 1701px;
-      z-index: 0;
-  }
   
-  .ellipse18 {
-      position: absolute;
-      top: 1000px;
-      left: 1500px;
-      transform: translate(-50%, -50%);
-      width: 1100px;
-      height: 933px;
-      z-index: 0;
-  }
   
-  .ellipse19 {
-      position: absolute;
-      right: 400px;
-      width: 100vw;
-      height: 100vh;
-      z-index: 0;
-    
-  }
-  .ellipse20 {
-      position: absolute;
-      top: 700px;
-      left: 100px;
-      transform: translate(-50%, -50%);
-      width: 100vw;
-      height: 500px;
-      z-index: 0;
-    
-  }
 }
 
 /* Desktop ve Tablet için mobile card'ı gizle */
@@ -872,4 +753,9 @@
   background: var(--color-paper-2);
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
+}
+/* fab-clearance: sabit ekleme düğmesi son satırı örtmesin. 56px düğme +
+   alt boşluğu kadar yer bırakılıyor. */
+.transactionsContainer {
+  padding-bottom: calc(56px + var(--space-lg) * 2);
 }

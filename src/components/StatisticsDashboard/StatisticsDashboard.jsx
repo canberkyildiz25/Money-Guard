@@ -12,6 +12,11 @@ import styles from "./StatisticsDashboard.module.css";
 
 
 
+const AYLAR = [
+  "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
+  "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık",
+];
+
 const StatisticsDashboard = () => {
   const transactions = useSelector(selectTransactions);
   const categories = useSelector(selectTransactionCategories);
@@ -47,9 +52,9 @@ const StatisticsDashboard = () => {
   );
 
   // Convert arrays to options format for FloatingDropdown
-  const monthOptions = months.map(month => ({
+  const monthOptions = months.map((month, i) => ({
     value: month,
-    label: month
+    label: AYLAR[i],
   }));
 
   const yearOptions = years.map(year => ({
@@ -81,26 +86,12 @@ const StatisticsDashboard = () => {
   }, [transactions, selectedMonth, selectedYear, months]);
 
   const statistics = useMemo(() => {
-    const emptyChartData = {
-      labels: ["No data"],
-      datasets: [
-        {
-          data: [1],
-          backgroundColor: ["rgba(201, 203, 207, 0.35)"],
-          borderColor: ["rgba(201, 203, 207, 0.45)"],
-          borderWidth: 2,
-          hoverOffset: 0,
-        },
-      ],
-    };
-
     if (!filteredTransactions || filteredTransactions.length === 0) {
       return {
         totalIncome: 0,
         totalExpense: 0,
         balance: 0,
-        categoryExpenses: {},
-        chartData: emptyChartData,
+        categoryExpenses: {}
       };
     }
 
@@ -135,58 +126,11 @@ const StatisticsDashboard = () => {
 
     const balance = totalIncome - totalExpense;
 
-    // Chart için sadece expense verilerini hazırla - her kategori için farklı renk
-    const labels = Object.keys(categoryExpenses);
-    const data = Object.values(categoryExpenses);
-
-    // Her kategori için farklı renk kullan
-    const colors = [
-      "#FF6384", // Pembe
-      "#36A2EB", // Mavi
-      "#FFCE56", // Sarı
-      "#4BC0C0", // Turkuaz
-      "#9966FF", // Mor
-      "#FF9F40", // Turuncu
-      "#FF6384", // Pembe
-      "#C9CBCF", // Gri
-    ];
-
-    const hasExpenseData = labels.length > 0;
-
-    if (totalIncome > 0) {
-      labels.push("Income");
-      data.push(totalIncome);
-    }
-
-    const chartData = hasExpenseData || totalIncome > 0
-      ? {
-          labels,
-          datasets: [
-            {
-              data,
-              backgroundColor: [
-                ...colors.slice(0, Object.keys(categoryExpenses).length),
-                ...(totalIncome > 0 ? ["#FFB627"] : []),
-              ],
-              borderColor: [
-                ...colors
-                  .slice(0, Object.keys(categoryExpenses).length)
-                  .map((color) => color + "80"),
-                ...(totalIncome > 0 ? ["#FFB62780"] : []),
-              ],
-              borderWidth: 2,
-              hoverOffset: 4,
-            },
-          ],
-        }
-      : emptyChartData;
-
     return {
       totalIncome,
       totalExpense,
       balance,
       categoryExpenses,
-      chartData,
     };
   }, [filteredTransactions, categories]);
 
@@ -204,11 +148,6 @@ const StatisticsDashboard = () => {
                 categoryExpenses={statistics.categoryExpenses}
                 total={statistics.totalExpense}
               />
-              <div className={styles.chartCenter}>
-                <div className={styles.balanceText}>
-                  {formatTRY(statistics.balance)}
-                </div>
-              </div>
             </div>
           </div>
 
@@ -221,7 +160,7 @@ const StatisticsDashboard = () => {
                   options={monthOptions}
                   value={selectedMonth}
                   onChange={setSelectedMonth}
-                  placeholder="Select month"
+                  placeholder="Ay seçin"
                   className={styles.statisticsTrigger}
                 />
 
@@ -229,7 +168,7 @@ const StatisticsDashboard = () => {
                   options={yearOptions}
                   value={selectedYear}
                   onChange={setSelectedYear}
-                  placeholder="Select year"
+                  placeholder="Yıl seçin"
                   className={styles.statisticsTrigger}
                 />
               </div>
@@ -240,29 +179,19 @@ const StatisticsDashboard = () => {
                 <div className={styles.tableHeader}>
                   <span>Kategori</span>
                   <span>Açıklama</span>
-                  <span>Amount</span>
+                  <span>Tutar</span>
                 </div>
 
                 {filteredTransactions.map((transaction) => {
                   const isIncome = transaction.type === "INCOME";
                   const categoryName = isIncome
-                    ? "Income"
+                    ? "Gelir"
                     : getCategoryName(transaction.categoryId);
 
-                  // Kategori için renk bul
-                  const categoryIndex = Object.keys(statistics.categoryExpenses).indexOf(categoryName);
-                  const categoryColor =
-                    isIncome
-                      ? "#FFB627"
-                      : statistics.chartData.datasets[0].backgroundColor[categoryIndex] || "#C9CBCF";
 
                   return (
                     <div key={transaction.id} className={styles.tableRow}>
                       <span className={styles.category}>
-                        <div
-                          className={styles.categoryColorBox}
-                          style={{ backgroundColor: categoryColor }}
-                        />
                         {categoryName}
                       </span>
 
@@ -280,7 +209,7 @@ const StatisticsDashboard = () => {
             ) : (
               <div className={styles.noTransactions}>
                 <p>
-                  No transactions found for {selectedMonth} {selectedYear}
+                  {AYLAR[months.indexOf(selectedMonth)]} {selectedYear} için kayıt yok
                 </p>
               </div>
             )}
@@ -288,13 +217,13 @@ const StatisticsDashboard = () => {
             {/* Summary Totals */}
             <div className={styles.summaryTotals}>
               <div className={styles.summaryItem}>
-                <span className={styles.summaryLabel}>Expenses:</span>
+                <span className={styles.summaryLabel}>Gider</span>
                 <span className={styles.summaryValue}>
                   {formatTRY(statistics.totalExpense)}
                 </span>
               </div>
               <div className={styles.summaryItem}>
-                <span className={styles.summaryLabel}>Income:</span>
+                <span className={styles.summaryLabel}>Gelir</span>
                 <span className={`${styles.summaryValue} ${styles.income}`}>
                   {formatTRY(statistics.totalIncome)}
                 </span>
@@ -313,11 +242,6 @@ const StatisticsDashboard = () => {
                 categoryExpenses={statistics.categoryExpenses}
                 total={statistics.totalExpense}
               />
-            <div className={styles.mobileChartCenter}>
-              <div className={styles.mobileBalanceText}>
-                {formatTRY(statistics.balance)}
-              </div>
-            </div>
           </div>
         </div>
 
@@ -328,7 +252,7 @@ const StatisticsDashboard = () => {
               options={monthOptions}
               value={selectedMonth}
               onChange={setSelectedMonth}
-              placeholder="Select month"
+              placeholder="Ay seçin"
               className={styles.mobileStatisticsTrigger}
             />
 
@@ -336,7 +260,7 @@ const StatisticsDashboard = () => {
               options={yearOptions}
               value={selectedYear}
               onChange={setSelectedYear}
-              placeholder="Select year"
+              placeholder="Yıl seçin"
               className={styles.mobileStatisticsTrigger}
             />
           </div>
@@ -348,27 +272,18 @@ const StatisticsDashboard = () => {
             <div className={styles.mobileTransactionsTable}>
               <div className={styles.mobileTableHeader}>
                 <span>Kategori</span>
-                <span>Amount</span>
+                <span>Tutar</span>
               </div>
 
               {filteredTransactions.map((transaction) => {
                 const isIncome = transaction.type === "INCOME";
                 const categoryName = isIncome
-                  ? "Income"
+                  ? "Gelir"
                   : getCategoryName(transaction.categoryId);
-                const categoryIndex = Object.keys(statistics.categoryExpenses).indexOf(categoryName);
-                const categoryColor =
-                  isIncome
-                    ? "#FFB627"
-                    : statistics.chartData.datasets[0].backgroundColor[categoryIndex] || "#C9CBCF";
                 
                 return (
                   <div key={transaction.id} className={styles.mobileTableRow}>
                     <span className={styles.mobileCategory}>
-                      <div
-                        className={styles.mobileCategoryColorBox}
-                        style={{ backgroundColor: categoryColor }}
-                      />
                       {categoryName}
                     </span>
                     <span className={`${styles.mobileAmount} ${isIncome ? styles.mobileIncome : ''}`}>
@@ -381,7 +296,7 @@ const StatisticsDashboard = () => {
           ) : (
             <div className={styles.mobileNoTransactions}>
               <p>
-                No transactions found for {selectedMonth} {selectedYear}
+                {AYLAR[months.indexOf(selectedMonth)]} {selectedYear} için kayıt yok
               </p>
             </div>
           )}
@@ -389,13 +304,13 @@ const StatisticsDashboard = () => {
           {/* Mobile Summary Totals */}
           <div className={styles.mobileSummaryTotals}>
             <div className={styles.mobileSummaryItem}>
-              <span className={styles.mobileSummaryLabel}>Expenses:</span>
+              <span className={styles.mobileSummaryLabel}>Gider</span>
               <span className={styles.mobileSummaryValue}>
                 {formatTRY(statistics.totalExpense)}
               </span>
             </div>
             <div className={styles.mobileSummaryItem}>
-              <span className={styles.mobileSummaryLabel}>Income:</span>
+              <span className={styles.mobileSummaryLabel}>Gelir</span>
               <span className={`${styles.mobileSummaryValue} ${styles.mobileIncome}`}>
                 {formatTRY(statistics.totalIncome)}
               </span>

@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import homeIcon from '../../assets/home.svg';
 import statisticIcon from '../../assets/statistic.svg';
 import currencyIcon from '../../assets/currency.svg';
-import currencyHoverIcon from '../../assets/currency-hover.svg';
 import styles from './Navigation.module.css';
 
 const Navigation = () => {
-  const [hoveredItem, setHoveredItem] = useState(null);
-
   const navItems = [
     {
       path: '/home',
@@ -37,14 +34,16 @@ const Navigation = () => {
           className={({ isActive }) => 
             `${styles.navItem} ${isActive ? styles.active : ''} ${item.mobileOnly ? styles.mobileOnly : ''}`
           }
-          onMouseEnter={() => setHoveredItem(item.path)}
-          onMouseLeave={() => setHoveredItem(null)}
         >
           <div className={styles.iconContainer}>
-            <img 
-              src={hoveredItem === item.path && item.hoverIcon ? item.hoverIcon : item.icon} 
-              alt={item.label} 
-              className={styles.navIcon} 
+            {/* Etiket hemen yanında; ikon ekran okuyucuya ikinci kez okunmasın. */}
+            <span
+              aria-hidden="true"
+              className={styles.navIcon}
+              /* Tırnak şart: Vite 4 KB altı SVG'leri data: URI olarak satır içine
+                 gömüyor; içindeki boşluk ve tırnaklar tırnaksız url() belirtecini
+                 geçersiz kılıyor ve tarayıcı özelliği sessizce reddediyordu. */
+              style={{ '--icon': `url("${item.icon}")` }}
             />
           </div>
           <span className={styles.navLabel}>{item.label}</span>

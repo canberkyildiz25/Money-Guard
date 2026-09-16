@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { formatTRY } from "../../utils/currency";
+import { formatTRY, formatDateTR } from "../../utils/currency";
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/selectors';
 import {
@@ -17,11 +17,6 @@ import EditTransactionModal from '../../components/TransactionModal/EditTransact
 import EmptyTransactions from '../../components/EmptyStates/EmptyTransactions';
 
 import styles from './DashboardPage.module.css';
-import ellipse14 from '../../assets/Ellipse14.svg';
-import ellipse16 from '../../assets/Ellipse16.svg';
-import ellipse18 from '../../assets/Ellipse18.svg';
-import ellipse19 from '../../assets/Ellipse19.svg';
-import ellipse20 from '../../assets/Ellipse20.svg';
 
 const DashboardPage = () => {
   const dispatch = useDispatch();
@@ -67,11 +62,6 @@ const DashboardPage = () => {
   return (
     <div className={styles.dashboard}>
       {/* Background SVG Elements */}
-      <img src={ellipse14} alt="" className={styles.ellipse14} />
-      <img src={ellipse16} alt="" className={styles.ellipse16} />
-      <img src={ellipse18} alt="" className={styles.ellipse18} />
-      <img src={ellipse19} alt="" className={styles.ellipse19} />
-      <img src={ellipse20} alt="" className={styles.ellipse20} />
 
       <Header />
 
@@ -113,7 +103,7 @@ const DashboardPage = () => {
                 transactions.map((transaction) => (
                   <div key={transaction.id} className={styles.tableRow}>
                     {/* Desktop/Tablet Layout */}
-                    <span className={styles.date}>{transaction.transactionDate}</span>
+                    <span className={styles.date}>{formatDateTR(transaction.transactionDate)}</span>
                     <span
                       className={`${styles.type} ${
                         transaction.type === 'INCOME' ? styles.income : styles.expense
@@ -130,13 +120,13 @@ const DashboardPage = () => {
                         transaction.amount >= 0 ? styles.positive : styles.negative
                       }`}
                     >
-                      {Math.abs(transaction.amount)}
+                      {formatTRY(Math.abs(transaction.amount))}
                     </span>
                     <div className={styles.actions}>
                       <button
                         className={styles.editButton}
                         onClick={() => handleEditClick(transaction)}
-                        aria-label="Edit transaction"
+                        aria-label="İşlemi düzenle"
                       >
                         <svg viewBox="0 0 24 24" fill="none" className={styles.editIcon}>
                           <path
@@ -159,7 +149,7 @@ const DashboardPage = () => {
                         className={styles.deleteButton}
                         onClick={() => handleDeleteClick(transaction.id)}
                       >
-                        Delete
+                        Sil
                       </button>
                     </div>
 
@@ -167,7 +157,7 @@ const DashboardPage = () => {
                     <div className={styles.mobileCard}>
                       <div className={styles.transactionCardRow}>
                         <span className={styles.transactionCardLabel}>Tarih</span>
-                        <span className={styles.transactionCardValue}>{transaction.transactionDate}</span>
+                        <span className={styles.transactionCardValue}>{formatDateTR(transaction.transactionDate)}</span>
                       </div>
                       <div className={styles.transactionCardRow}>
                         <span className={styles.transactionCardLabel}>Tür</span>
@@ -204,7 +194,7 @@ const DashboardPage = () => {
                           className={styles.mobileDeleteButton}
                           onClick={() => handleDeleteClick(transaction.id)}
                         >
-                          Delete
+                          Sil
                         </button>
                         <button
                           className={styles.mobileEditButton}
@@ -227,7 +217,7 @@ const DashboardPage = () => {
                               strokeLinejoin="round"
                             />
                           </svg>
-                          Edit
+                          Düzenle
                         </button>
                       </div>
                     </div>
@@ -242,7 +232,7 @@ const DashboardPage = () => {
           </div>
 
           {/* Floating Action Button */}
-          <button className={styles.fab} onClick={handleAddClick}>
+          <button className={styles.fab} onClick={handleAddClick} aria-label="İşlem ekle">
             <span className={styles.fabIcon}>+</span>
           </button>
         </main>

@@ -12,7 +12,7 @@
   border-radius: 12px;
   color: var(--color-ink-2);
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: background-color var(--dur-press) var(--ease-out);
   font-weight: 500;
 }
 
@@ -36,7 +36,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 4px;
-  transition: all 0.2s ease;
+  transition: background-color var(--dur-press) var(--ease-out);
   overflow: hidden;
   background: transparent;
 }
@@ -44,28 +44,40 @@
 .navIcon {
   width: 32px;
   height: 32px;
-  transition: all 0.2s ease;
+  transition: background-color var(--dur-press) var(--ease-out);
   flex-shrink: 0;
   z-index: 2;
   position: relative;
 }
 
-/* Normal durumda SVG rengi */
+/* İkon maske olarak çiziliyor: şekli SVG, rengi token veriyor. Önceki
+   filtre zinciri (…hue-rotate(270deg)…) #800080'in el ayarı bir
+   yaklaşımıydı ve token okuyamadığı için renk taşımasında mor kaldı. */
 .navIcon {
-  filter: brightness(0) saturate(100%) invert(60%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* Maske tam alfa; tonu yalnızca renk belirliyor. SVG’lerdeki
+     fill-opacity="0.4" kaldırıldı — yoksa aktif durum da soluk kalıyordu. */
+  background-color: var(--color-rule-heavy);
+  -webkit-mask: var(--icon) center / contain no-repeat;
+  mask: var(--icon) center / contain no-repeat;
+  transition: background-color var(--dur-press) var(--ease-out);
 }
 
-/* Hover ve aktif durumda SVG rengi - #800080 */
-.navItem:hover .navIcon,
+@media (hover: hover) and (pointer: fine) {
+  .navItem:hover .navIcon { background-color: var(--color-ink-3); }
+}
+
 .navItem.active .navIcon {
-  filter: brightness(0) saturate(100%) invert(12%) sepia(94%) saturate(6500%) hue-rotate(270deg) brightness(95%) contrast(105%);
+  background-color: var(--color-accent);
 }
 
 
 
 .navLabel {
   font-size: 1rem;
-  transition: color 0.2s ease, font-weight 0.2s ease;
+  transition: color var(--dur-press) var(--ease-out);
 }
 
 /* Mobile responsive */

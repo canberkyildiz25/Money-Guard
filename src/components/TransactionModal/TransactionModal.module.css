@@ -86,11 +86,23 @@
   font-weight: 800;
 }
 
-/* checkbox görünmez */
+/* Görsel olarak gizli ama klavyeyle erişilebilir. visibility:hidden onu
+   sekme sırasından çıkarıyordu — klavyeyle tür değiştirilemiyordu. */
 .switchInput {
-  width: 0;
-  height: 0;
-  visibility: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.switchInput:focus-visible + .switchLabel {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
 }
 
 /* track */
@@ -102,7 +114,7 @@
   position: relative;
   display: block;
   cursor: pointer;
-  transition: all 0.5s ease 0s;
+  border: 1px solid var(--color-rule-heavy);
 }
 
 /* knob (+) */
@@ -116,7 +128,8 @@
   top: -2px;
   left: -4px;
   background-color: var(--color-income);
-  transition: all 0.5s ease 0s;
+  transition: transform 180ms var(--ease-out),
+    background-color 180ms var(--ease-out);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -127,8 +140,9 @@
 .switchInput:checked+.switchLabel::after {
   content: '−';
   font-size: 35px;
-  left: 84px;
-  transform: translateX(-100%);
+  /* Başlangıçla aynı bitiş noktası (sol kenar 40px), ama yerleşim
+     özelliği yerine transform ile. */
+  transform: translateX(44px);
   background-color: var(--color-expense);
 }
 
@@ -196,44 +210,55 @@
   gap: 12px;
   margin-top: 8px;
 }
-
-.addButton {
-  background: var(--color-paper-2);
-  border: 0;
-  color: var(--color-ink);
-  padding: 14px;
-  border-radius: 25px;
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: 1px;
+/* Eylemler — design.md'nin CTA sesi. Birincil tütün dolgu, ikincil saç
+   çizgisi; 2px köşe, cümle düzeni, hover yalnızca rengi değiştirir. Vazgeç
+   önceden kâğıt üstünde kâğıt rengiydi ve görünmüyordu. */
+.addButton,
+.saveButton,
+.cancelButton {
+  min-height: 48px;
+  padding: 0 var(--space-md);
+  border-radius: var(--radius-input);
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.8s ease;
-  text-transform: uppercase;
-  position: relative;
-  overflow: hidden;
-}.addButton:hover {
-}.addButton:active {
-  transform: translateY(0);
+  transition: background-color var(--dur-press) var(--ease-out),
+    border-color var(--dur-press) var(--ease-out),
+    color var(--dur-press) var(--ease-out);
 }
 
-
+.addButton,
+.saveButton {
+  background: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent-ink);
+}
 
 .cancelButton {
-  background: var(--color-paper);
-  color: var(--color-paper-2);
-  border: 0;
-  padding: 14px;
-  border-radius: 25px;
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  background: transparent;
+  border: 1px solid var(--color-rule-heavy);
+  color: var(--color-ink);
 }
 
-.cancelButton:hover {
-  background: var(--color-paper-2);
+@media (hover: hover) and (pointer: fine) {
+  .addButton:hover,
+  .saveButton:hover {
+    background: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+  }
+  .cancelButton:hover { border-color: var(--color-ink); }
+}
+
+.addButton:active,
+.saveButton:active,
+.cancelButton:active { transform: translateY(1px); }
+
+.addButton:focus-visible,
+.saveButton:focus-visible,
+.cancelButton:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
 }
 
 /* ---------- RESPONSIVE ---------- */
@@ -268,7 +293,7 @@
 }
 
 .editTypeText.active {
-  color: var(--color-caution, var(--color-accent));
+  color: var(--color-income);
   
 }
 
@@ -290,21 +315,7 @@
   margin: 0 0.25rem;
 }
 
-.saveButton {
-  background: var(--color-paper-2);
-  border: 0;
-  color: var(--color-ink);
-  padding: 14px;
-  border-radius: 25px;
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.8s ease;
-  text-transform: uppercase;
-  position: relative;
-  overflow: hidden;
-}.saveButton:hover {
-}.saveButton:active {
-  transform: translateY(0);
+
+@media (prefers-reduced-motion: reduce) {
+  .switchLabel::after { transition-duration: 0.01ms; }
 }

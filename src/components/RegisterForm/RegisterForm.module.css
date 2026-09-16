@@ -122,23 +122,32 @@
 
 .btn {
   width: 300px;
-  height: 50px;
-  border: none;
-  border-radius: 25px;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  max-width: 100%;
+  min-height: 48px;
+  border: 1px solid transparent;
+  /* design.md: 2px corners. A ledger is ruled, not rounded. */
+  border-radius: var(--radius-input);
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.8s ease;
-  margin-bottom: 15px;
+  transition: background-color var(--dur-press) var(--ease-out),
+    border-color var(--dur-press) var(--ease-out),
+    color var(--dur-press) var(--ease-out);
+  margin-bottom: var(--space-2xs);
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  overflow: hidden;
-  margin-left: auto;
-  margin-right: auto;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
 }
 
 .btnPrimary {

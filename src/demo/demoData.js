@@ -35,7 +35,12 @@ export const DEMO_CATEGORIES = [
    dönerdi. */
 const gun = (aylarOnce, gunNo) => {
   const d = new Date();
-  d.setMonth(d.getMonth() - aylarOnce, gunNo);
+  /* İçinde bulunulan ayda gün numarası bugüne oranlanır. Sabit gün
+     yazıldığında ayın 16'sında 26'sına ait kayıt gelecekte duruyordu.
+     Oranlama sırayı korur ve hiçbir kaydı bugünün ötesine taşımaz. */
+  const bugun = d.getDate();
+  const gercekGun = aylarOnce === 0 ? Math.max(1, Math.round((gunNo * bugun) / 28)) : gunNo;
+  d.setMonth(d.getMonth() - aylarOnce, gercekGun);
   d.setHours(12, 0, 0, 0);
   return d.toISOString().slice(0, 10);
 };

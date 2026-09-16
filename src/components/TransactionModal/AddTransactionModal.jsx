@@ -134,7 +134,7 @@ useEffect(() => {
           {/* ---------- SOLDAN 'Income' | ORTA SWITCH | SAĞDAN 'Expense' ---------- */}
           <div className={styles.switcheWrapper}>
             <span className={formData.type === "INCOME" ? styles.income : ""}>
-              Income
+              Gelir
             </span>
 
             {/* Checkbox + label switcher (checked => EXPENSE) */}
@@ -154,7 +154,7 @@ useEffect(() => {
             />
 
             <span className={formData.type === "EXPENSE" ? styles.expense : ""}>
-              Expense
+              Gider
             </span>
           </div>
 
@@ -219,10 +219,10 @@ useEffect(() => {
           {/* Buttons */}
           <div className={styles.buttonGroup}>
             <button type="submit" className={styles.addButton}>
-              ADD
+              Ekle
             </button>
             <button type="button" onClick={onClose} className={styles.cancelButton}>
-              CANCEL
+              Vazgeç
             </button>
           </div>
         </form>

@@ -101,11 +101,11 @@ const EditTransactionModal = ({ isOpen, onClose, transaction }) => {
             <label className={styles.label}>İşlem türü</label>
             <div className={styles.editTypeDisplay}>
               <span className={`${styles.editTypeText} ${formData.type === 'INCOME' ? styles.active : ''}`}>
-                Income
+                Gelir
               </span>
               <span className={styles.editTypeSeparator}>/</span>
               <span className={`${styles.editTypeText} ${formData.type === 'EXPENSE' ? styles.active : ''} ${formData.type === 'EXPENSE' ? styles.expenseType : ''}`}>
-                Expense
+                Gider
               </span>
             </div>
           </div>
@@ -172,10 +172,10 @@ const EditTransactionModal = ({ isOpen, onClose, transaction }) => {
           {/* Action Buttons */}
           <div className={styles.buttonGroup}>
             <button type="submit" className={styles.saveButton}>
-              SAVE
+              Kaydet
             </button>
             <button type="button" onClick={onClose} className={styles.cancelButton}>
-              CANCEL
+              Vazgeç
             </button>
           </div>
         </form>

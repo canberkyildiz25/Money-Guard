@@ -116,7 +116,7 @@ const RegisterForm = () => {
           </div>
           <input
             type="text"
-            placeholder="Name"
+            placeholder="Ad"
             {...register('name')}
             className={`${styles.inputField} ${errors.name ? styles.error : ''}`}
           />
@@ -132,7 +132,7 @@ const RegisterForm = () => {
           </div>
           <input
             type="email"
-            placeholder="Email"
+            placeholder="E-posta"
             {...register('email')}
             className={`${styles.inputField} ${errors.email ? styles.error : ''}`}
           />
@@ -149,7 +149,7 @@ const RegisterForm = () => {
           </div>
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Parola"
             {...register('password')}
             className={`${styles.inputField} ${errors.password ? styles.error : ''}`}
           />
