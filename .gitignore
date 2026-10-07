@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# local settings and secrets
+.env
+.env.*
+!.env.template
+mg-backend/.env
