@@ -1,7 +1,4 @@
-/* Hallmark · genre: editorial · design-system: design.md · designed-as-app
- * theme: Defter — safety-tint straw paper · Fraunces display · tobacco accent
- * axes: light paper / roman-serif display / warm accent
- */
+/* The design tokens. The system they belong to is written down in design.md. */
 
 :root {
   /* ── Paper. Three steps, no shadows. Depth is a paper change. ── */

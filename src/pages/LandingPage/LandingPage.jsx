@@ -23,8 +23,7 @@ const tl = (n) =>
   }).format(n);
 
 /* Yürüyen bakiye. Defterin sol marjında duran şey etiket değil, hesabın
-   o satırdaki hâli — Hallmark sol-etiket/sağ-başlık kalıbını yasaklıyor ve
-   bir defterde o sütun zaten veriye ait. */
+   o satırdaki hâli: bir defterde o sütun zaten veriye ait. */
 const yuruyen = KAYIT.reduce((acc, s) => {
   const onceki = acc.length ? acc[acc.length - 1].bakiye : 0;
   acc.push({ ...s, bakiye: onceki + s.tutar });

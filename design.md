@@ -1,8 +1,7 @@
 # Design — Money Guard
 
-A locked design system for this app. Every page redesign reads this file before
-emitting code. Do not regenerate per page — extend or amend this file when the
-system needs to grow.
+The design system for this app, and the reasons behind it. A page is changed
+to fit this file; when the system has to grow, this file is changed first.
 
 ## The idea
 

@@ -1,6 +1,4 @@
-/* Hallmark · design-system: design.md · designed-as-app
- *
- * Was: a 135° violet gradient on `body` (#667eea → #764ba2 → #1a1a2e) plus
+/* Was: a 135° violet gradient on `body` (#667eea → #764ba2 → #1a1a2e) plus
  * ~70 lines of `.floating-coins` / `.coin` animation. The gradient painted
  * over every page's paper, and the coin rules were dead — no JSX has
  * referenced them. Both are gone; the body now takes the ledger's paper.
